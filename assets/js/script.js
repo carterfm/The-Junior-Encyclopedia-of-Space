@@ -20,3 +20,22 @@ function getApod(){
 
 getApod()
 
+$(document).ready(function(){
+    $('.submit-btn').on('click', function(event){
+        event.preventDefault()
+        $('.apod-container').addClass('hide')
+        var solarBody = $('.planet-input').val();
+        $('.planet-input').val('');
+        solarbodysearch(solarBody);
+    })
+    function solarbodysearch(solarBody){
+        fetch(`https://api.le-systeme-solaire.net/rest/bodies/${solarBody}`)
+        .then(response =>
+          response.json())
+        .then(data=>
+            console.log(data))
+    }
+
+
+
+})
