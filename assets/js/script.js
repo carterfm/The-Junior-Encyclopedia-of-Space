@@ -36,13 +36,9 @@ $(document).ready(function () {
             .then(data =>
                 console.log(data))
     }
-<<<<<<< HEAD
-});
-=======
 
 
 
 })
 
 // CARTER: needs accordian function
->>>>>>> dev
