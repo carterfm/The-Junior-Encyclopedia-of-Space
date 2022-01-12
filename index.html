@@ -6,9 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=PT+Sans&family=Righteous&display=swap" rel="stylesheet">  
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=PT+Sans&family=Righteous&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css"> 
   <link rel="stylesheet" href="./assets/css/style.css">
-  <script src="js/foundation.min.js"></script>
   <title>The Junior Encyclopedia of Space</title>
 </head>
 
@@ -50,17 +51,91 @@
 </header>
 
 <main>
-<div class = "apod-container">
-  <img id = "apod-img" src = "" alt = "daily photo">
+<!-- <div class = "apod-container">
+  <div class="row"
+    div class="columns"
+      <img id = "apod-img" src = "" alt = "daily photo">
   <h1 id = "apod-title"></h1>
   <p id = "apod-explanation"></p>
   <p id = "apod-copyright"></p>
+</div> -->
+
+
+<div class="apod-container> 
+  <div class="media-object">
+    <div class="media-object-section main-section">
+      <div class="thumbnail">
+        <!-- <div class="columns large-6 large-offset-1"> -->
+          <img id = "apod-img" src = "" alt = "daily photo">
+        <!-- </div> -->
+      </div>
+    </div>  
+    <div class="media-object-section">
+      <div class="columns small-4">
+        <h4 id = "apod-title"></h4>
+        <p id = "apod-explanation"></p>
+        <p id = "apod-copyright"></p>
+      <!-- </div> -->
+    </div>
+  </div>
 </div>
 
+<section id="accordion">
+    <h3>body type</h3>
+    <div>
+      <p>
+        placeholder
+      </p>
+    </div>
+    <h3>distance from sun</h3>
+    <div>
+      <p>
+        placeholder
+      </p>
+    </div>
+    <h3>discovered by & date discovered</h3>
+    <div>
+      <p>
+        placeholder
+      </p>
+    </div>
+    <h3>density/gravity relative to Earth</h3>
+    <div>
+      <p>
+        placeholder
+      </p>
+    </div>
+    <h3>if planet => moons?</h3>
+    <div>
+      <p>
+        placeholder
+      </p>
+    </div>
+    <h3>if moon => what planet?</h3>
+    <div>
+      <p>
+        placeholder
+      </p>
+    </div>
+    <h3>sideral orbit</h3>
+    <div>
+      <p>
+        placeholder
+      </p>
+    </div>
+    <h3>sideral rotation</h3>
+    <div>
+      <p>
+        placeholder
+      </p>
+    </div>
+</section>
 
 </main>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<script src="js/foundation.min.js"></script>
 <script src="./assets/js/script.js"></script>
 </body>
 </html>
