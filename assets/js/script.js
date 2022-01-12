@@ -1,7 +1,8 @@
-const requestApodUrl = 'https://api.nasa.gov/planetary/apod/?api_key=mzTxnxnGx9DLnVoAugcd52XptUxh4FL1XpzOSmyw'
+const REQUESTAPODURL = 'https://api.nasa.gov/planetary/apod/?api_key=mzTxnxnGx9DLnVoAugcd52XptUxh4FL1XpzOSmyw'
+const ONEG = 9.8;
 
 function getApod () {
-    fetch(requestApodUrl)
+    fetch(REQUESTAPODURL)
         .then(response =>
             response.json())
         .then(function (data) {
@@ -31,11 +32,22 @@ $(document).ready(function() {
 
     //This function handles searchin our api for 
     function solarbodysearch(solarBody) {
+        //Need a variable to track what kind of stellar body this is
+
         fetch(`https://api.le-systeme-solaire.net/rest/bodies/${solarBody}`)
             .then(response =>
                 response.json())
             .then(function (data) {
                 console.log(data);
+                //Setting text of info elements in the accordion section
+                $('#body-type-text').text(data.bodyType);
+                //$("#distance-from-sun-text")
+                $('#discoverer-text').text(data.discoveredBy);
+                $('#discovery-date-text').text(data.discoveryDate);
+                $('#gravity-text').text((data.gravity/ONEG) + ' Gs');
+                //What unit is density measured in?
+                $('#orbital-period-text').text(data.sideralOrbit + ' days');
+                $('#rotational-period-text').text(data.sideralRotation + ' hours');
             })
     }
 })
