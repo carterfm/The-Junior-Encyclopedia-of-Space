@@ -6,11 +6,17 @@
 :root {
   --darkblue: #000033;
   --lightblue: #eafdff;
+  --pink: #e94c66;
 }
 
 body {
   color: var(--lightblue);
   background-color: var(--darkblue);
+}
+
+/* Nav Styling */
+.nav-wrapper {
+  height: 20vh;
 }
 
 h1 {
@@ -50,7 +56,7 @@ a:link, a:visited {
 }
 
 a:hover, a:active {
-  background-color: #e94c66;
+  background-color: var(--pink);
 }
 
 button {
@@ -63,6 +69,13 @@ button {
 }
 
 button:hover, button:active {
-  background-color: #e94c66;
+  background-color: var(--pink);
+}
+
+/* Main Styling */
+
+img {
+  width: 500px;
+  margin: 25px;
 }
 

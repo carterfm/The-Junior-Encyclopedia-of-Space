@@ -7,8 +7,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=PT+Sans&family=Righteous&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css" integrity="sha512-t38vG/f94E72wz6pCsuuhcOPJlHKwPy+PY+n1+tJFzdte3hsIgYE7iEpgg/StngunGszVMrRfvwZinrza0vMTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css" integrity="sha512-t38vG/f94E72wz6pCsuuhcOPJlHKwPy+PY+n1+tJFzdte3hsIgYE7iEpgg/StngunGszVMrRfvwZinrza0vMTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./assets/css/style.css">
   <title>The Junior Encyclopedia of Space</title>
@@ -16,7 +18,7 @@
 
 <body>
 
-<header>
+<!-- <header>
   <nav class="row">
     <div class="columns">
       <ul class="vertical menu">
@@ -38,7 +40,38 @@
       </div>
     </div>
   </form>
+</header> -->
+
+<header>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo center">The Junior Encyclopedia of Space</a>
+        <!-- Dropdown Trigger -->
+      <a class='dropdown-trigger btn right' data-target='dropdown1'>Menu</a>
+      <!-- Dropdown Structure -->
+      <ul id='dropdown1' class='dropdown-content'>
+        <li><a href="#!">one</a></li>
+        <li><a href="#!">two</a></li>
+        <li class="divider" tabindex="-1"></li>
+        <li><a href="#!">three</a></li>
+        <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+        <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+      </ul>
+      <div class="row">
+        <div class="left col s5">
+          <div class="row">
+            <i class="material-icons left">search</i>
+              <div class="input-field col s5">
+              <input type="text" id="autocomplete-input" class="autocomplete">
+              <label for="autocomplete-input">Search</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
 </header>
+
 
 <main>
 
@@ -121,10 +154,12 @@
 
 
 </main>
+
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js" integrity="sha512-m2PhLxj2N91eYrIGU2cmIu2d0SkaE4A14bCjVb9zykvp6WtsdriFCiXQ/8Hdj0kssUB/Nz0dMBcoLsJkSCto0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="./assets/js/script.js"></script>
 </body>
 </html>
