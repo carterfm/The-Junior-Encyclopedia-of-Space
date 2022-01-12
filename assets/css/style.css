@@ -26,7 +26,7 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: end;
-  background-color: var(--lightblue)
+  background-color: var(--lightblue);
   color: var(--darkblue);
   text-align: center;
 }
