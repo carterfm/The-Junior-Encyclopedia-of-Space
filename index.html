@@ -6,43 +6,77 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=PT+Sans&family=Righteous&display=swap" rel="stylesheet"> 
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css"> 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css" integrity="sha512-t38vG/f94E72wz6pCsuuhcOPJlHKwPy+PY+n1+tJFzdte3hsIgYE7iEpgg/StngunGszVMrRfvwZinrza0vMTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=PT+Sans&family=Righteous&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css" integrity="sha512-IgmDkwzs96t4SrChW29No3NXBIBv8baW490zk5aXvhCD8vuZM3yUSkbyTBcXohkySecyzIrUwiF/qV0cuPcL3Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./CSS-DRAFT.css">
   <title>The Junior Encyclopedia of Space</title>
 </head>
 
 <body>
 
-<header>
-  <nav class="row">
-    <div class="columns">
-      <ul class="vertical menu">
-        <li><a href="#">About Us</a></li>
-        <h1 id="title">The Junior Encyclopedia of Space</h1>
-        <li><a href="#">Resources</a></li>
-        <li><a href="#">Favorites</a></li>
-      </ul>
-    </div>
-  </nav>
-  <form>
-    <div class="row">
-      <div class="col s-5">
-        <div class="search-group">
-          <span class="search-input-label">Search</span>
-          <input class="search-group-field planet-input" type="text">
-          <button type="submit-btn" class="button submit-btn" value="Submit">Submit</button>
+<section class="hero is-small has-background-grey-dark">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div id="navbarMenuHeroA" class="navbar-menu">
+          <div class="navbar-end mr=0">
+            <button class="is-hovered"> 
+            <a class="navbar-item has-background-info-light m-1">
+            <p class="has-text-grey-dark">About Us</p>
+            </a>
+            </button>
+            <button class="is-hovered"> 
+            <a class="navbar-item has-background-info-light m-1">
+            <p class="has-text-grey-dark">Resources</p> 
+            </a>
+            </button>
+            <button class="is-hovered"> 
+            <a class="navbar-item has-background-info-light m-1">
+            <p class="has-text-grey-dark">Favorites</p>
+            </a>
+            </button>
+          </div>
         </div>
       </div>
+    </nav>
+  </div>
+  <br>
+  <br>
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title has-text-info-light is-size-1">
+        The Junior Encyclopedia of Space
+      </h1>
     </div>
-  </form>
-</header>
+  </div>
+  <br>
+  <br>
+  <!-- Hero footer: will stick at the bottom -->
+  <div class="hero-foot">
+    <div class="container mx-2">
+      <div class="field has-addons">
+        <p class="control">
+          <input class="input" type="text" placeholder="search">
+        </p>
+        <p class="control">
+          <a class="button is-static has-background-info-light has-text-grey-dark">
+          submit
+          </a>
+        </p>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<main>
+<main> 
 
-<!-- <div class = "apod-container">
+  <!-- Photo of the Day  -->
+<div class = "apod-container">
   <div class="row">
     <div class="col s6 offset-s1>
       <img id = "apod-img" src = "" alt = "daily photo">
@@ -53,20 +87,6 @@
       <p id = "apod-copyright"></p>
     </div>
   </div>  
-</div> -->
-
-<!-- Picture of the Day -->
-<div class="apod-container"> 
-  <div class="row">
-    <div class="col ">
-      <img id = "apod-img" src = "" alt = "daily photo">
-    </div>  
-    <div class="column media-object-section">
-      <h4 id = "apod-title"></h4>
-      <p id = "apod-explanation"></p>
-      <p id = "apod-copyright"></p>
-    </div>
-  </div>
 </div>
 
 <!-- Selected Body -->
@@ -121,10 +141,8 @@
 
 
 </main>
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js" integrity="sha512-m2PhLxj2N91eYrIGU2cmIu2d0SkaE4A14bCjVb9zykvp6WtsdriFCiXQ/8Hdj0kssUB/Nz0dMBcoLsJkSCto0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script>
 <script src="./assets/js/script.js"></script>
 </body>
 </html>
