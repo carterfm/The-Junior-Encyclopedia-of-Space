@@ -220,7 +220,7 @@ var bodies = {
     "Vanth": "",
     "sedna": "",
     "chariklo": "https://solarsystem.nasa.gov/system/content_pages/main_images/411_10199_chariklo_main.jpg",
-    "sylvia": "https://apod.nasa.gov/apod/image/0508/sylvia_compo680.jpg"
+    "sylvia": "https://apod.nasa.gov/apod/image/0508/sylvia_compo680.jpg",
     "dactyl": "https://d2pn8kiwq2w21t.cloudfront.net/images/jpegPIA00297.width-768.jpg",
     "orcus": "https://apod.nasa.gov/apod/image/0903/orcus_gemini_big.gif",
     //Dwarf Planet
