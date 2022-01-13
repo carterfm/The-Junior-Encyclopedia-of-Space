@@ -1,0 +1,62 @@
+
+* {
+
+    box-sizing: border-box;
+    font-family: 'PT Sans', sans-serif;
+  }
+  
+  :root {
+    --darkblue: #000033;
+    --lightblue: #ebfdff;
+    --pink: #e94e68;
+  }
+  
+  .hero {
+    background-color: var(--darkblue);
+  }
+  
+  h1 {
+    color:var(--lightblue);
+    font-family: 'Righteous';
+  }
+  
+  a:hover, a:active {
+    background: var(--pink);
+  }
+  
+  button:hover, button:active {
+    background: var(--pink);
+  }
+
+  box-sizing: border-box;
+  font-family: 'PT Sans', sans-serif;
+}
+
+:root {
+  --darkblue: #000033;
+  --lightblue: #ebfdff;
+  --pink: #e94e68;
+}
+
+.hero {
+  background-color: var(--darkblue);
+}
+
+h1 {
+  color:var(--lightblue);
+  font-family: 'Righteous';
+}
+
+a:hover, a:active {
+  background: var(--pink);
+}
+
+button:hover, button:active {
+  background: var(--pink);
+}
+
+
+main {
+  background-color: var(--darkblue);
+  color: var(--lightblue);
+}
