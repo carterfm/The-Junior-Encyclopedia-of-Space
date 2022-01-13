@@ -85,3 +85,5 @@ $(document).ready(function() {
 getTranslations();
 // CARTER: needs accordian function
 
+getApod();
+
