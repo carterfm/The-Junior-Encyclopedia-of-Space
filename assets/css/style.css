@@ -1,4 +1,5 @@
 * {
+<<<<<<< HEAD
   * {
     box-sizing: border-box;
     font-family: 'PT Sans', sans-serif;
@@ -26,4 +27,72 @@
   button:hover, button:active {
     background: var(--pink);
   }
+=======
+  box-sizing: border-box;
+  font-family: 'PT Sans', sans-serif;
+}
+
+:root {
+  --darkblue: #000033;
+  --lightblue: #eafdff;
+}
+
+body {
+  color: var(--lightblue);
+  background-color: var(--darkblue);
+}
+
+h1 {
+  align-content: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0;
+  font-family: 'Righteous', cursive;
+  font-size: -webkit-xxx-large;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  background-color: var(--lightblue);
+  color: var(--darkblue);
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  align-items: flex-end;
+}
+
+a:link, a:visited {
+  background-color: #eafdff;
+  color: #000033;
+  padding: 3px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: 2px solid var(--darkblue);
+  margin: 3px;
+}
+
+a:hover, a:active {
+  background-color: #e94c66;
+}
+
+button {
+  background-color: #eafdff;
+  color: #000033;
+  padding: 3px;
+  text-align: center;
+  display: inline-block;
+  border: 2px solid var(--darkblue);
+}
+
+button:hover, button:active {
+  background-color: #e94c66;
+}
+>>>>>>> dev
 
