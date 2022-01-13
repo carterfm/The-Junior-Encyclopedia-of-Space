@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=PT+Sans&family=Righteous&display=swap" rel="stylesheet"> 
-  <!--What is the link below supposed to be a link to? As of right now,
-  this is causing an error warning to appear in my console - Carter-->
-  <link rel="stylesheet" href="/resources/demos/style.css"> 
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=PT+Sans&family=Righteous&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=PT+Sans&family=Righteous&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css" integrity="sha512-IgmDkwzs96t4SrChW29No3NXBIBv8baW490zk5aXvhCD8vuZM3yUSkbyTBcXohkySecyzIrUwiF/qV0cuPcL3Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/resources/demos/style.css"> 
   <link rel="stylesheet" href="./assets/css/style.css">
   <title>The Junior Encyclopedia of Space</title>
   <link rel="shortcut icon" href="./assets/favicon/favicon.ico" type="image/x-icon">
@@ -19,117 +19,157 @@
 
 <body>
 
-  <section class="hero is-small">
-    <!-- Hero head: will stick at the top -->
-    <div class="hero-head">
-      <nav class="navbar">
-        <div class="container">
-          <div id="navbarMenuHeroA" class="navbar-menu">
-            <div class="navbar-end mr=0">
-              <button class="is-hovered"> 
-              <a class="navbar-item has-background-info-light m-1">
-              <p class="has-text-grey-dark">About Us</p>
-              </a>
-              </button>
-              <button class="is-hovered"> 
-              <a class="navbar-item has-background-info-light m-1">
-              <p class="has-text-grey-dark">Resources</p> 
-              </a>
-              </button>
-              <button class="is-hovered"> 
-              <a class="navbar-item has-background-info-light m-1">
-              <p class="has-text-grey-dark">Favorites</p>
-              </a>
-              </button>
-            </div>
+<header class="hero is-small has-background-grey-dark">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div id="navbarMenuHeroA" class="navbar-menu">
+          <div class="navbar-end">
+            <button class="is-hovered"> 
+            <a class="navbar-item has-background-info-light m-1">
+            <p class="has-text-grey-dark">About Us</p>
+            </a>
+            </button>
+            <button class="is-hovered"> 
+            <a class="navbar-item has-background-info-light m-1">
+            <p class="has-text-grey-dark">Resources</p> 
+            </a>
+            </button>
+            <button class="is-hovered"> 
+            <a class="navbar-item has-background-info-light m-1">
+            <p class="has-text-grey-dark">Favorites</p>
+            </a>
+            </button>
           </div>
         </div>
-      </nav>
-    </div>
-    <br>
-    <br>
-    <!-- Hero content: will be in the middle -->
-    <div class="hero-body">
-      <div class="container has-text-centered">
-        <h1 class="title has-text-info-light is-size-1">
-          The Junior Encyclopedia of Space
-        </h1>
       </div>
+    </nav>
+  </div>
+  <br>
+  <br>
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title has-text-info-light is-size-1">
+        The Junior Encyclopedia of Space
+      </h1>
     </div>
+  </div>
+  <br>
+  <br>
+  <!-- Hero footer: will stick at the bottom -->
+  <div class="hero-foot mb-2 ml-0">
+    <div class="container">
+      <form class="field has-addons mb-2">
+        <p class="control">
+          <input class="input" type="text" placeholder="search">
+        </p>
+        <p class="control">
+          <a class="button has-background-info-light has-text-grey-dark">
+          submit
+          </a>
+        </p>     
+      </form>
+    </div>  
   </form>
 </header>
 
-    <br>
-    <br>
-    <!-- Hero footer: will stick at the bottom -->
-    <div class="hero-foot">
-      <div class="container mx-2">
-        <div class="field has-addons">
-          <p class="control">
-            <input class="input" type="text" placeholder="search">
-          </p>
-          <p class="control">
-            <a class="button is-static has-background-info-light has-text-grey-dark">
-            submit
-            </a>
-          </p>
-        </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
 <main>
+<!-- <div class = "apod-container">
+  <div class="row">
+    <div class="columns">
+      <img id = "apod-img" src = "" alt = "daily photo">
+    </div>  
+    <div> 
+      <h1 id = "apod-title"></h1>
+      <p id = "apod-explanation"></p>
+      <p id = "apod-copyright"></p>
+    </div> 
+  </div>
+</div> -->
 
 
-<section class="apod-container"> 
-  <div class="media-object">
-    <div class="media-object-section main-section">
-      <div class="thumbnail">
-        <!-- <div class="columns large-6 large-offset-1"> -->
-          <img id = "apod-img" src = "" alt = "daily photo">
-        <!-- </div> -->
-
-        <img id = "apod-img" src = "" alt = "daily photo"/>
+<div class="tile is-ancestor apod-container"> 
+  <div class="tile notification has-background-info-light">
+    <!-- <h1 id = "apod-title" class="title is-center has-text-grey-dark"></h1> -->
+    <div class="tile">
+      <div class="tile is-parent is-11 notification has-background-grey-dark">
+        <article class="tile is-child">
+          <figure class="image is-7by7">
+            <img id = "apod-img" src = "" alt = "daily photo">
+          </figure>  
+        </article>>
       </div>
-      <div class="col s-4">
-        <h2 id = "apod-title"></h2>
-        <p id = "apod-explanation"></p>
-        <p id = "apod-copyright"></p>
+      <div class="tile is-parent is-2 notification has-background-info-light>
+        <article class="tile is-child is-right has-text-grey->
+          <p id = "apod-explanation" class="content"></p>
+          <p id = "apod-copyright" class="subtitle"></p>
+        </article>
       </div>
     </div>
   </div>
-</section>
+</div>
 
+<div>
+  <h2>Name of Body</h2>
+</div>
 <section id="accordion">
-    <h3>Classification and discovery</h3>
+    <h3>Body type</h3>
     <div>
-      <p id="body-type-text">placeholder</p>
-      <p id="discoverer-text">placeholder</p>
-      <p id="discovery-date-text">placeholder</p>
+      <p id="body-type-text">
+        placeholder
+      </p>
     </div>
-    <h3>Details of orbit and rotation</h3>
+    <h3>Discovered by & date discovered</h3>
     <div>
-      <p id="orbits-around-text">placeholder</p>
-      <p id="apoapsis-text">placeholder</p>
-      <p id="periapsis-text">placeholder</p>
-      <p id="orbital-period-text">placeholder</p>
-      <p id="rotational-period-text">placeholder</p>
+      <p id="discoverer-text">
+        placeholder
+      </p>
+      <p id="discovery-date-text">
+        placeholder
+      </p>
     </div>
-    <h3>Size, mass, density, and gravity</h3>
+    <h3>Distance from the sun</h3>
     <div>
-      <p id="equa-radius-text">placeholder</p>
-      <p id="polar-radius-text">placeholder</p>
-      <p id="avg-radius-text">placeholder</p>
-      <p id="mass-text">placeholder</p>
-      <p id="density-text">placeholder</p>
-      <p id="gravity-text">placeholder</p>
+      <p id="distance-from-sun-text">
+        placeholder
+      </p>
+    </div>
+    <h3>Surface gravity (in Gs)</h3>
+    <div>
+      <p id="gravity-text">
+        placeholder
+      </p>
+    </div>
+    <h3>Density</h3>
+    <div>
+      <p id="density-text">
+        placeholder
+      </p>
     </div>
     <!--We'll give the info panels that will only be displayed conditionally classes to mark them as such-->
-    <h3 class="if-planet">Moons</h3>
+    <h3 class="if-planet">if planet => moons?</h3>
     <div class="if-planet">
       <p id="moons-text">
+        placeholder
+      </p>
+    </div>
+    <h3 class="if-moon">if moon => what planet?</h3>
+    <div class="if-moon"> 
+      <p id="orbits-planet-text">
+        placeholder
+      </p>
+    </div>
+    <h3>Orbital period</h3>
+    <div>
+      <p id="orbital-period-text">
+        placeholder
+      </p>
+    </div>
+    <h3>Rotational period</h3>
+    <div>
+      <p id="rotational-period-text">
         placeholder
       </p>
     </div>
@@ -138,12 +178,8 @@
 
 
 </main>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script>
-
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<!--<script src="js/foundation.min.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sass.js/0.11.1/sass.js" integrity="sha512-o3uttbIx94NYlTeI0PE6dm6OJRORmL1iBJqeAylDhVm+iwPwCl/x566K4hBFUoSPkr7hG8tur0WVCUR+wNsRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="./assets/js/script.js"></script>
 </body>
 </html>
