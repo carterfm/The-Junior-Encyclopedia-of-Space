@@ -20,7 +20,7 @@ function getApod () {
             $('#apod-img').attr('src', data.url);
             $('#apod-title').text(apodTitle);
             $('#apod-explanation').text(apodExplanation);
-            $('#apod-copyright').text(apodCopyRight);
+            $('#apod-copyright').text("© " + apodCopyRight);
         })
 }
 
