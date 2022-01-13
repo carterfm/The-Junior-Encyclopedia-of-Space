@@ -52,9 +52,4 @@ $(document).ready(function() {
     }
 })
 
-<<<<<<< HEAD
-// CARTER: needs accordian function
-
-=======
 getApod();
->>>>>>> dev
