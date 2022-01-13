@@ -30,29 +30,80 @@ $(document).ready(function() {
         event.preventDefault()
         //$('.apod-container').addClass('hide');
         //$('.apod-container').css('display', 'none');
-        var solarBody = $('.planet-input').val();
-        $('.planet-input').val('');
-        solarbodysearch(solarBody);
+        var solarBody = $('#planet-input').val();
+        $('#planet-input').val('');
+        solarBodySearch(solarBody);
     })
 
     //This function handles searchin our api for 
-    function solarbodysearch(solarBody) {
-        //Need a variable to track what kind of stellar body this is
+    function solarBodySearch(solarBody) {
+        console.log("Called solarBodySearch with " + solarBody);
+        //variable to track whether the search term exists in our database or not; will be set to true if
+        //the response upon calling the API is ok. Used to decide whether to display error message or
+        //generate text of accordion segment
+        var bodyExists = false;
+        //variable to track what body this body orbits directly around
+        var orbitsAround = '';
 
-        fetch(`https://api.le-systeme-solaire.net/rest/bodies/${solarBody}`)
-            .then(response =>
-                response.json())
+        fetch('https://api.le-systeme-solaire.net/rest/bodies/' + solarBody)
+            .then(function (response) {
+                if (response.ok) {
+                    bodyExists = true;
+                    return response.json();
+                }
+            })
             .then(function (data) {
                 console.log(data);
-                //Setting text of info elements in the accordion section
-                $('#body-type-text').text(data.bodyType);
-                //$("#distance-from-sun-text")
-                $('#discoverer-text').text(data.discoveredBy);
-                $('#discovery-date-text').text(data.discoveryDate);
-                $('#gravity-text').text((data.gravity/ONEG) + ' Gs');
-                //What unit is density measured in?
-                $('#orbital-period-text').text(data.sideralOrbit + ' days');
-                $('#rotational-period-text').text(data.sideralRotation + ' hours');
+                if (bodyExists) {
+                    //setting text of title field
+                    $('#body-name').text(data.englishName);
+
+                    //Classification and discovery section
+                    $('#body-type-text').text('Classification: ' + data.bodyType);
+                    if (data.discoveredBy !== '') {
+                        $('#discoverer-text').text('Discovered by: ' + data.discoveredBy);
+                        $('#discovery-date-text').text('Discovered on: ' + data.discoveryDate);
+                    } else {
+                        $('#discoverer-text').text('Knowledge of this body has existed since the beginning of recorded history.');
+                        $('#discovery-date-text').text('');
+                    }
+
+                    //Orbit and rotation section
+                    if (data.bodyType === 'Moon'){
+                        //Perform a fetch request to get the planet this body orbits around 
+                        orbitsAround = 'somePlanet'
+                        $('#orbits-around-text').text('Orbits around: ' + orbitsAround);
+                    } else {
+                        orbitsAround = 'the sun'
+                        $('#orbits-around-text').text('Orbits around: ' + orbitsAround);
+                    }
+
+                    if (data.aphelion > 0) {
+                        $('#apoapsis-text').text('Distance from ' + orbitsAround + ' at farthest point of orbit: ' + data.aphelion + " kilometers");
+                    } else {
+                        $('#apoapsis-text').text('Distance from ' + orbitsAround + ' at farthest point of orbit: ' + INFONOTFOUND);
+                    }
+
+                    if (data.perihelion > 0) {
+                        $('#periapsis-text').text('Distance from ' + orbitsAround + ' at closest point of orbit: ' + data.perihelion + " kilometers");
+                    } else {
+                        $('#periapsis-text').text('Distance from ' + orbitsAround + ' at closest point of orbit: ' + INFONOTFOUND);
+                    }
+
+                    if (data.sideralOrbit > 0) {
+                        $('#orbital-period-text').text('Length of one full orbit around ' + orbitsAround + ': ' + data.sideralOrbit + ' days');
+                    } else {
+                        $('#orbital-period-text').text('Length of one full orbit around ' + orbitsAround + ': ' + INFONOTFOUND);
+                    }
+
+                    $('#rotational-period-text').text('Length of day (i.e., time for one full rotation): ' + data.sideralRotation + ' hours');
+
+                    //Size, mass, density, and gravity section
+
+                } else {
+                    //displaying error message in title field
+                    $('#body-name').text(INFONOTFOUND);
+                }
             })
     }
 })
