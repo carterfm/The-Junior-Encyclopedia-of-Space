@@ -19,34 +19,31 @@
 
 <body>
 
-<header class="hero is-small has-background-grey-dark">
+<header class="hero is-small has-background-#000033">
   <!-- Hero head: will stick at the top -->
-  <div class="hero-head">
-    <nav class="navbar">
-      <div class="container">
-        <div id="navbarMenuHeroA" class="navbar-menu">
-          <div class="navbar-end">
-            <button class="is-hovered"> 
-            <a class="navbar-item has-background-info-light m-1">
-            <p class="has-text-grey-dark">About Us</p>
-            </a>
-            </button>
-            <button class="is-hovered"> 
-            <a class="navbar-item has-background-info-light m-1">
-            <p class="has-text-grey-dark">Resources</p> 
-            </a>
-            </button>
-            <button class="is-hovered"> 
-            <a class="navbar-item has-background-info-light m-1">
-            <p class="has-text-grey-dark">Favorites</p>
-            </a>
-            </button>
-          </div>
+  <nav class="navbar">
+    <div class="container mr-6 mt-4">
+      <div id="navbarMenuHeroA" class="navbar-menu">
+        <div class="navbar-end">
+          <button class="is-hovered"> 
+          <a class="navbar-item has-background-info-light m-1">
+          <p class="has-text-grey-dark">About Us</p>
+          </a>
+          </button>
+          <button class="is-hovered"> 
+          <a class="navbar-item has-background-info-light m-1">
+          <p class="has-text-grey-dark">Resources</p> 
+          </a>
+          </button>
+          <button class="is-hovered"> 
+          <a class="navbar-item has-background-info-light m-1">
+          <p class="has-text-grey-dark">Favorites</p>
+          </a>
+          </button>
         </div>
       </div>
-    </nav>
-  </div>
-  <br>
+    </div>
+  </nav>
   <br>
   <!-- Hero content: will be in the middle -->
   <div class="hero-body">
@@ -57,11 +54,10 @@
     </div>
   </div>
   <br>
-  <br>
   <!-- Hero footer: will stick at the bottom -->
-  <div class="hero-foot mb-2 ml-0">
-    <div class="container">
-      <form class="field has-addons mb-2">
+  <div class="hero-foot">
+    <div class="container ml-5 mb-4">
+      <form class="field has-addons">
         <p class="control">
           <input class="input" type="text" placeholder="search">
         </p>
@@ -75,41 +71,31 @@
   </form>
 </header>
 
-<main>
-<!-- <div class = "apod-container">
-  <div class="row">
-    <div class="columns">
-      <img id = "apod-img" src = "" alt = "daily photo">
-    </div>  
-    <div> 
-      <h1 id = "apod-title"></h1>
-      <p id = "apod-explanation"></p>
-      <p id = "apod-copyright"></p>
-    </div> 
-  </div>
-</div> -->
+<main class="has-background-grey-dark">
 
-
-<div class="tile is-ancestor apod-container"> 
+<h1 class="mgh-large has-background-info-light is-size-2 has-text-centered has-text-grey-dark">Astronomy Photo of the Day</h1>
+<br>
+<!-- Astronomy Photo of the Day -->
+<div class="tile is-ancestor has-background-grey-dark apod-container"> 
   <div class="tile notification is-center has-background-grey-dark">
-    <!-- <h1 id = "apod-title" class="title is-center has-text-grey-dark"></h1> -->
-    <div class="tile">
-      <div class="tile is-parent ml-6 mr-6 mt-6 mb-6 is-7 mgl-medium notification has-background-info-light">
-        <article class="tile is-child">
+    <!-- <div class="tile"> -->
+      <div class="tile is-parent ml-6 mr-6 mt-6 is-7by7 mgl-medium notification">
+        <!-- Photo -->
+        <article class="tile is-child box">
           <figure class="image">
-            <img id = "apod-img" src = "" alt = "daily photo">
+            <img id = "apod-img" class="is-7by7" src = "" alt = "daily photo">
           </figure>  
         </article>
       </div>
-      <div class="tile has-background-grey-dark">
-        <div class="tile is-parent is-10 mt-6 mb-6 ml-5 mr-3 notification has-background-grey-dark">
-          <article class="tile is-child is-right has-text-info-light">
-            <p id = "apod-explanation" class="content"></p>
-            <p id = "apod-copyright" class="subtitle"></p>
-          </article>
-        </div>
-      </div> 
-    </div>
+      <div class="tile is-parent is-4 mt-6 ml-5 mr-6 notification has-background-grey-dark">
+        <!-- Description -->
+        <article class="tile is-child is-right has-text-info-light">
+          <h1 id="apod-title" class="title"></h1>
+          <p id = "apod-explanation" class="content"></p>
+          <p id = "apod-copyright" class="subtitle"></p>
+        </article>
+      </div>
+    <!-- </div>   -->
   </div>
 </div>
 
