@@ -1,5 +1,35 @@
 const REQUESTAPODURL = 'https://api.nasa.gov/planetary/apod/?api_key=mzTxnxnGx9DLnVoAugcd52XptUxh4FL1XpzOSmyw'
+const ONECALLSOLARSYSTEM = "https://api.le-systeme-solaire.net/rest/bodies/";
 const ONEG = 9.8;
+
+//Some of the information we want to generate when searching our database
+//is only available in French--specifically, if a body has moons and we want
+//to access them or a body orbits around a planet and we want to access that planet,
+//that information is in French. So, we'll use this object to build up and store a
+//set of French -> English translations for the names of all the bodies covered by
+//our solar system API
+var frenchToEnglish = {};
+
+function getTranslations () {
+    //If this is the first time building our frenchToEnglish object up, we'll use an API
+    //call; otherwise, we'll just retrieve it from local storage
+    savedFrenchToEnglish = JSON.parse(localStorage.getItem("frenchToEnglish"));
+
+    if (savedFrenchToEnglish !== null) {
+        frenchToEnglish = savedFrenchToEnglish;
+    } else {
+        fetch(ONECALLSOLARSYSTEM)
+        .then(response =>
+            response.json())
+        .then(function (data) {
+            for (var i = 0; i < data.bodies.length; i++) {
+                frenchToEnglish[data.bodies[i].name] = data.bodies[i].englishName;
+            }
+            localStorage.setItem("frenchToEnglish", JSON.stringify(frenchToEnglish));
+        })
+    }
+
+}
 
 function getApod () {
     fetch(REQUESTAPODURL)
@@ -52,9 +82,6 @@ $(document).ready(function() {
     }
 })
 
-<<<<<<< HEAD
+getTranslations();
 // CARTER: needs accordian function
 
-=======
-getApod();
->>>>>>> dev
