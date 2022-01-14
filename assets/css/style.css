@@ -1,0 +1,42 @@
+:root {
+  --darkblue: hsl(240, 100%, 10%);
+  --lightblue: #ebfdff;
+  --pink: #e94e68;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'PT Sans', sans-serif;
+}
+
+h1 {
+  color:var(--lightblue);
+  font-family: 'Righteous';
+}
+
+a:hover, a:active {
+  background: var(--pink);
+}
+
+button:hover, button:active {
+  background: var(--pink);
+  }
+
+.hero {
+  background-color: var(--darkblue);
+}
+
+#body-name {
+  display: none;
+}
+
+#search-content {
+  display: none;
+}
+
+#search-break {
+  display: none;
+}
+
+
+
