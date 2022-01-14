@@ -79,13 +79,13 @@ $(document).ready(function() {
                     }
 
                     if (data.aphelion > 0) {
-                        $('#apoapsis-text').text('Distance from ' + orbitsAround + ' at farthest point of orbit: ' + data.aphelion + " kilometers");
+                        $('#apoapsis-text').text('Distance from ' + orbitsAround + ' at farthest point of orbit: ' + data.aphelion + ' kilometers');
                     } else {
                         $('#apoapsis-text').text('Distance from ' + orbitsAround + ' at farthest point of orbit: ' + INFONOTFOUND);
                     }
 
                     if (data.perihelion > 0) {
-                        $('#periapsis-text').text('Distance from ' + orbitsAround + ' at closest point of orbit: ' + data.perihelion + " kilometers");
+                        $('#periapsis-text').text('Distance from ' + orbitsAround + ' at closest point of orbit: ' + data.perihelion + ' kilometers');
                     } else {
                         $('#periapsis-text').text('Distance from ' + orbitsAround + ' at closest point of orbit: ' + INFONOTFOUND);
                     }
@@ -96,9 +96,62 @@ $(document).ready(function() {
                         $('#orbital-period-text').text('Length of one full orbit around ' + orbitsAround + ': ' + INFONOTFOUND);
                     }
 
-                    $('#rotational-period-text').text('Length of day (i.e., time for one full rotation): ' + data.sideralRotation + ' hours');
+                    if (data.sideralRotation > 0){
+                        $('#rotational-period-text').text('Time for one full rotation relative to the stars: ' + data.sideralRotation + ' hours');
+                    } else {
+                        $('#rotational-period-text').text('Time for one full rotation relative to the stars: ' + INFONOTFOUND)
+                    }
+                    
 
                     //Size, mass, density, and gravity section
+                    if (data.equaRadius > 0) {
+                        $('#equa-radius-text').text('Radius at equator: ' + data.equaRadius + ' kilometers');
+                    } else {
+                        $('#equa-radius-text').text('Radius at equator: ' + INFONOTFOUND);
+                    }
+
+                    if (data.polarRadius > 0) {
+                        $('#polar-radius-text').text('Radius at poles: ' + data.polarRadius + ' kilometers');
+                    } else {
+                        $('#polar-radius-text').text('Radius at poles: ' + INFONOTFOUND);
+                    }
+
+                    if (data.meanRadius > 0) {
+                        $('#mean-radius-text').text('Average radius: ' + data.meanRadius + " kilometers");
+                    } else {
+                        $('#mean-radius-text').text('Average radius: ' + INFONOTFOUND);
+                    }
+
+                    //The mass measurements this api provides are measured in kilograms rather than in metric tons,
+                    //and we want to display them in metric tons. Thus, we're subtracting 3 from the mass exponent
+                    //--since x * 10^(y) kg is equal to x * 10^(y - 3) tons
+                    if (data.mass !== null) {
+                        var newExponent = data.mass.massExponent - 3;
+                        $('#mass-text').text('Mass: ' + data.mass.massValue + ' * 10^(' + newExponent + ') metric tons' );
+                    } else {
+                        $('#mass-text').text('Mass: ' + INFONOTFOUND);
+                    }
+
+                    //Similarly, the data on density this api provides are measured in grams per cubic centimeter,
+                    //and we want to display them in kilograms per cubic meter, so we'll multiply the density
+                    //figures the api gives us by 1000
+                    if (data.density > 0) {
+                        var convertedDensity = data.density * 1000;
+                        $('#density-text').text('Density: ' + convertedDensity + ' kilograms per cubic meter')
+                    } else {
+                        $('#density-text').text('Density: ' + INFONOTFOUND);
+                    }
+
+                    //Finally, gravity is given in meters per second squared, so to convert it to Gs, we just
+                    //have to divide by 9.8
+                    if (data.gravity > 0) {
+                        var gravityGs = data.gravity/ONEG;
+                        $('#gravity-text').text('Surface gravity: ' + gravityGs + 'Gs');
+                    } else {
+                        $('#gravity-text').text('Surface gravity: ' + INFONOTFOUND);
+                    }
+
+                    //Moons section: to do later
 
                 } else {
                     //displaying error message in title field
