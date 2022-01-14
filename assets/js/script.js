@@ -1,4 +1,5 @@
 const REQUESTAPODURL = 'https://api.nasa.gov/planetary/apod/?api_key=mzTxnxnGx9DLnVoAugcd52XptUxh4FL1XpzOSmyw';
+const ONECALLSOLARSYSTEM = 'https://api.le-systeme-solaire.net/rest/bodies/';
 //Message to be displayed when our dataset lacks information, which, unfortunately, is
 //a fairly frequent occurance even for some of the solar system's less obscure bodies
 const INFONOTFOUND = "No information was found in our database. Sorry!";
@@ -6,10 +7,36 @@ const INFONOTFOUND = "No information was found in our database. Sorry!";
 //measured in meters per second squared; this constant will be used to convert them to Gs.
 const ONEG = 9.8;
 
+//Some information about our stellar bodies is associated with their ids (which are essentially just
+//their French names written in all lowercase), so we need an object that associates these ids with the bodies'
+//English names
+var idToEngName = {}
+
+function getIdToEngName () {
+    fetch(ONECALLSOLARSYSTEM)
+        .then(function (response){
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            for (var i = 0; i < data.bodies.length; i++) {
+                //For a few obscure bodies, englishName is missing from the api's data
+                //For these, we'll just use their ID
+                if (data.bodies[i].englishName !== '') {
+                    idToEngName[data.bodies[i].id] = data.bodies[i].englishName;
+                } else {
+                    idToEngName[data.bodies[i].id] = data.bodies[i].id;
+                }
+            }
+            console.log(idToEngName);
+        })
+}
+
 function getApod () {
     fetch(REQUESTAPODURL)
-        .then(response =>
-            response.json())
+        .then(function (response){
+            return response.json();
+        })
         .then(function (data) {
             /*console.log("Got Apod:")
             console.log(data);*/
@@ -45,7 +72,7 @@ $(document).ready(function() {
         //variable to track what body this body orbits directly around
         var orbitsAround = '';
 
-        fetch('https://api.le-systeme-solaire.net/rest/bodies/' + solarBody)
+        fetch(ONECALLSOLARSYSTEM + solarBody)
             .then(function (response) {
                 if (response.ok) {
                     bodyExists = true;
@@ -70,8 +97,7 @@ $(document).ready(function() {
 
                     //Orbit and rotation section
                     if (data.bodyType === 'Moon'){
-                        //Perform a fetch request to get the planet this body orbits around 
-                        orbitsAround = 'somePlanet'
+                        orbitsAround = idToEngName[data.aroundPlanet.planet];
                         $('#orbits-around-text').text('Orbits around: ' + orbitsAround);
                     } else {
                         orbitsAround = 'the sun'
@@ -161,6 +187,7 @@ $(document).ready(function() {
     }
 })
 
+getIdToEngName();
 getApod();
 
 // CARTER: needs accordian function
