@@ -26,11 +26,15 @@ button:hover, button:active {
   background-color: var(--darkblue);
 }
 
-.search-content {
+#body-name {
   display: none;
 }
 
-#body-name {
+#search-content {
+  display: none;
+}
+
+#search-break {
   display: none;
 }
 

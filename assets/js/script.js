@@ -76,7 +76,8 @@ $(document).ready(function() {
         $('.apod').css('display', 'none');
         //re-hiding the content panel and title
         $('#body-name').css('display', 'none');
-        $('.search-content').css('display', 'none');
+        $('#search-break').css('display', 'none');
+        $('#search-content').css('display', 'none');
 
         fetch(ONECALLSOLARSYSTEM + solarBody)
             .then(function (response) {
@@ -185,9 +186,18 @@ $(document).ready(function() {
 
                     //Moons section: to do later
 
+                    //Image: display either a photo of the body from NASA's database, or
+                    //if one could not be found, a placeholder
+                    if (BODIES[data.englishName] !== '') {
+                        $('#body-image').attr('src', BODIES[data.englishName]);
+                    } else {
+                        $('#body-image').attr('src', 'https://cdn.discordapp.com/attachments/929118260887171123/931643733370347530/not-found.png');
+                    }
+
                     //finally, revealing content panel
                     $('#body-name').css('display', 'block');
-                    $('.search-content').css('display', 'block');
+                    $('#search-break').css('display', 'block');
+                    $('#search-content').css('display', 'block');
 
                 } else {
                     //displaying error message in title field
@@ -197,6 +207,7 @@ $(document).ready(function() {
             })
     }
 })
+
 
 getIdToEngName();
 getApod();

@@ -1,4 +1,4 @@
-var bodies = {
+const BODIES = {
     "Moon": "https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/opo9914d.jpg",
     //Jupiter moons
     "Phobos": "https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/images/283561main_phobos2_hirise_big_full.jpg",
@@ -314,6 +314,5 @@ var bodies = {
     "S/2004 S 38": "",
     "S/2004 S 39": "",
     "C/2020 F3 (NEOWISE)": "https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/50103972537_82d097c23d_o.jpg",
-    "S/2003 J 24": "",
-
+    "S/2003 J 24": ""
 }

@@ -13,10 +13,15 @@
   <title>The Junior Encyclopedia of Space</title>
   <link rel="shortcut icon" href="./assets/favicon/favicon.ico" type="image/x-icon">
   <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon">
+<<<<<<< HEAD
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+=======
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+>>>>>>> dev
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
   <script>
+  //Move this to script.js later
   $( function() {
     $( "#accordion" ).accordion();
   } );
@@ -81,8 +86,6 @@
 
 <main class="has-background-grey-dark">
 
-<!--Added apod class to both title, line break, and container of Astronomy Photo of The Day section so we can hide them
-when the user searches for something-->
 <h1 class="mgh-large has-background-info-light is-size-2 has-text-centered has-text-grey-dark apod">Astronomy Photo of the Day</h1>
 <br class="apod">
 <!-- Astronomy Photo of the Day -->
@@ -109,20 +112,19 @@ when the user searches for something-->
 
 <!-- CARTER OR ISAAC - this h1 needs to have the name of the body displayed -->
 <h1 class="mgh-large has-background-info-light is-size-2 has-text-centered has-text-grey-dark" id='body-name'>CHOSEN PLANET</h1>
-<<<<<<< HEAD
-<br class="search-content">
-<div class="selected-body-info tile is-ancestor mx-6 mb-6 mt-0 pt-0 px-6 has-background-grey-dark search-content">
-  <div class="tile is-justify-content-space-between has-background-grey-dark is-flex-shrink-6 mb-6 mx-6">
-    <!--Added a class to the div directly below to keep info hidden when a search hasn't been put in-->
-    <div class="tile is-parent is-6 is-flex-direction-column is-align-self-center has-background-grey-dark box">
-=======
-<br>
-<div class="selected-body-info tile is-ancestor mx-6 px-6 has-background-grey-dark">
+<br id="search-break">
+<div class="selected-body-info tile is-ancestor mx-6 px-6 has-background-grey-dark" id="search-content">
   <div class="tile is-justify-content-space-between has-background-grey-dark mx-6">
     <div class="tile is-parent is-6 is-justify-column-center is-flex-direction-column is-align-self-center has-background-grey-dark box">
->>>>>>> dev
       <!-- Accordian of Facts -->
+<<<<<<< HEAD
+      <br>
+        <h2 id='body-name'>Name of Body</h2>
+        <br>
+      <section id="accordion" class="is-child is-justify-items-center is-align-items-center is-size-4 has-background-grey-dark has-text-info-light">
+=======
       <section id="accordion" class="is-child mt-6 is-justify-column-center is-justify-items-center is-align-items-center is-size-5 is-flex-shrink-1 has-background-grey-dark has-text-centered has-text-info-light">
+>>>>>>> dev
           <h3>Classification and discovery</h3>
           <div>
             <p id="body-type-text">placeholder</p>
@@ -160,17 +162,19 @@ when the user searches for something-->
           <!-- Photo -->
           <article class="tile is-child is-justify-self-center is-align-self-center mb-6">
             <figure class="image">
-              <img id = "" class="is-align-self-center" src ="https://i.pinimg.com/originals/e6/6b/36/e66b36f061ebd1657cacc7c016f98d3e.jpg" alt = "photo of selected body">
+              <img id ="body-image" class="is-align-self-center" src ="" alt = "photo of selected body">
             </figure>  
           </article>
         </div> 
       </section> 
+    </div>
   </div>
-</div> 
+</div>  
 
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sass.js/0.11.1/sass.js" integrity="sha512-o3uttbIx94NYlTeI0PE6dm6OJRORmL1iBJqeAylDhVm+iwPwCl/x566K4hBFUoSPkr7hG8tur0WVCUR+wNsRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="./assets/js/body-images.js"></script>
 <script src="./assets/js/script.js"></script>
 </body>
 </html>
