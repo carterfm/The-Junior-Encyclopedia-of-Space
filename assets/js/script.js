@@ -72,6 +72,12 @@ $(document).ready(function() {
         //variable to track what body this body orbits directly around
         var orbitsAround = '';
 
+        //hiding the astronomy photo of the day section when searching for a body
+        $('.apod').css('display', 'none');
+        //re-hiding the content panel and title
+        $('#body-name').css('display', 'none');
+        $('.search-content').css('display', 'none');
+
         fetch(ONECALLSOLARSYSTEM + solarBody)
             .then(function (response) {
                 if (response.ok) {
@@ -179,9 +185,14 @@ $(document).ready(function() {
 
                     //Moons section: to do later
 
+                    //finally, revealing content panel
+                    $('#body-name').css('display', 'block');
+                    $('.search-content').css('display', 'block');
+
                 } else {
                     //displaying error message in title field
                     $('#body-name').text(INFONOTFOUND);
+                    $('#body-name').css('display', 'block');
                 }
             })
     }
