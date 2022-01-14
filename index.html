@@ -81,10 +81,12 @@
 
 <main class="has-background-grey-dark">
 
-<h1 class="mgh-large has-background-info-light is-size-2 has-text-centered has-text-grey-dark">Astronomy Photo of the Day</h1>
-<br>
+<!--Added apod class to both title, line break, and container of Astronomy Photo of The Day section so we can hide them
+when the user searches for something-->
+<h1 class="mgh-large has-background-info-light is-size-2 has-text-centered has-text-grey-dark apod">Astronomy Photo of the Day</h1>
+<br class="apod">
 <!-- Astronomy Photo of the Day -->
-<div class="tile is-ancestor is-10 has-background-grey-dark apod-container"> 
+<div class="tile is-ancestor is-10 has-background-grey-dark apod-container apod"> 
   <div class="tile notification has-background-grey-dark">
     <div class="tile is-parent m-6 is-7by7 mgl-medium notification has-background-grey-dark">
       <!-- Photo -->
@@ -107,10 +109,18 @@
 
 <!-- CARTER OR ISAAC - this h1 needs to have the name of the body displayed -->
 <h1 class="mgh-large has-background-info-light is-size-2 has-text-centered has-text-grey-dark" id='body-name'>CHOSEN PLANET</h1>
+<<<<<<< HEAD
+<br class="search-content">
+<div class="selected-body-info tile is-ancestor mx-6 mb-6 mt-0 pt-0 px-6 has-background-grey-dark search-content">
+  <div class="tile is-justify-content-space-between has-background-grey-dark is-flex-shrink-6 mb-6 mx-6">
+    <!--Added a class to the div directly below to keep info hidden when a search hasn't been put in-->
+    <div class="tile is-parent is-6 is-flex-direction-column is-align-self-center has-background-grey-dark box">
+=======
 <br>
 <div class="selected-body-info tile is-ancestor mx-6 px-6 has-background-grey-dark">
   <div class="tile is-justify-content-space-between has-background-grey-dark mx-6">
     <div class="tile is-parent is-6 is-justify-column-center is-flex-direction-column is-align-self-center has-background-grey-dark box">
+>>>>>>> dev
       <!-- Accordian of Facts -->
       <section id="accordion" class="is-child mt-6 is-justify-column-center is-justify-items-center is-align-items-center is-size-5 is-flex-shrink-1 has-background-grey-dark has-text-centered has-text-info-light">
           <h3>Classification and discovery</h3>
@@ -155,9 +165,8 @@
           </article>
         </div> 
       </section> 
-    </div>
   </div>
-</div>  
+</div> 
 
 </main>
 
