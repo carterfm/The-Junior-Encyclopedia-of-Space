@@ -26,6 +26,20 @@ button:hover, button:active {
   background-color: var(--darkblue);
 }
 
+.search-this-body {
+  padding: 5px;
+  margin: 5px;
+
+  background-color: grey;
+  color: white;
+
+  cursor: pointer;
+}
+
+.search-this-body:hover {
+  opacity: 50%;
+}
+
 #body-name {
   display: none;
 }
