@@ -20,7 +20,7 @@
   //Move this to script.js later
   $( function() {
     $( "#accordion" ).accordion();
-  } );
+  });
   </script>
 </head>
 
@@ -142,11 +142,8 @@
             <p id="gravity-text">placeholder</p>
           </div>
           <!--We'll give the info panels that will only be displayed conditionally classes to mark them as such-->
-          <h3 class="if-planet">Moons</h3>
-          <div class="if-planet">
-            <p class="moon-text">
-              placeholder
-            </p>
+          <h3 class="has-moons">Moons</h3>
+          <div class="has-moons" id='moons-div'>
           </div>
         </div>  
       </section>
