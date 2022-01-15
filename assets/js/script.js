@@ -9,8 +9,10 @@ const ONEG = 9.8;
 
 //Some information about our stellar bodies is associated with their ids (which are essentially just
 //their French names written in all lowercase), so we need an object that associates these ids with the bodies'
-//English names
-var idToEngName = {}
+//English names. Other data is assocaited with their French names, so we need another object
+//to associate their French Names with their English names.
+var idToEngName = {};
+var frenchToEngName = {};
 
 function getIdToEngName () {
     fetch(ONECALLSOLARSYSTEM)
@@ -24,11 +26,14 @@ function getIdToEngName () {
                 //For these, we'll just use their ID
                 if (data.bodies[i].englishName !== '') {
                     idToEngName[data.bodies[i].id] = data.bodies[i].englishName;
+                    frenchToEngName[data.bodies[i].name] = data.bodies[i].englishName;
                 } else {
                     idToEngName[data.bodies[i].id] = data.bodies[i].id;
+                    frenchToEngName[data.bodies[i].name] = data.bodies[i].id;
                 }
             }
             console.log(idToEngName);
+            console.log(frenchToEngName)
         })
 }
 
@@ -69,6 +74,8 @@ $(document).ready(function() {
         //the response upon calling the API is ok. Used to decide whether to display error message or
         //generate text of accordion segment
         var bodyExists = false;
+        //And a variable to track if a body has moons
+        var hasMoons = false;
         //variable to track what body this body orbits directly around
         var orbitsAround = '';
 
@@ -78,6 +85,12 @@ $(document).ready(function() {
         $('#body-name').css('display', 'none');
         $('#search-break').css('display', 'none');
         $('#search-content').css('display', 'none');
+
+        //Removing the moons entries if there are any, then hiding the moons section
+        $.each($('.moon-entry'), function() {
+            $(this).remove();
+        });
+        $('.has-moons').css('display', 'none');
 
         fetch(ONECALLSOLARSYSTEM + solarBody)
             .then(function (response) {
@@ -103,38 +116,49 @@ $(document).ready(function() {
                     }
 
                     //Orbit and rotation section
-                    if (data.bodyType === 'Moon'){
-                        orbitsAround = idToEngName[data.aroundPlanet.planet];
-                        $('#orbits-around-text').text('Orbits around: ' + orbitsAround);
+                    //Since the sun is the center of the solar system, we have a special check to see
+                    //if the body we're looking at is the sun and display a unique message accordingly
+                    if (data.englishName === 'Sun'){
+                        $('#orbits-around-text').text('The sun is the body around which all planets, asteroids, and comets in the solar system orbit.');
+                        $('#apoapsis-text').text('');
+                        $('#periapsis-text').text('');
+                        $('#orbital-period-text').text('');
+                        $('#rotational-period-text').text('');
                     } else {
-                        orbitsAround = 'the sun'
-                        $('#orbits-around-text').text('Orbits around: ' + orbitsAround);
-                    }
-
-                    if (data.aphelion > 0) {
-                        $('#apoapsis-text').text('Distance from ' + orbitsAround + ' at farthest point of orbit: ' + data.aphelion + ' kilometers');
-                    } else {
-                        $('#apoapsis-text').text('Distance from ' + orbitsAround + ' at farthest point of orbit: ' + INFONOTFOUND);
-                    }
-
-                    if (data.perihelion > 0) {
-                        $('#periapsis-text').text('Distance from ' + orbitsAround + ' at closest point of orbit: ' + data.perihelion + ' kilometers');
-                    } else {
-                        $('#periapsis-text').text('Distance from ' + orbitsAround + ' at closest point of orbit: ' + INFONOTFOUND);
-                    }
-
-                    if (data.sideralOrbit > 0) {
-                        $('#orbital-period-text').text('Length of one full orbit around ' + orbitsAround + ': ' + data.sideralOrbit + ' days');
-                    } else {
-                        $('#orbital-period-text').text('Length of one full orbit around ' + orbitsAround + ': ' + INFONOTFOUND);
-                    }
-
-                    if (data.sideralRotation > 0){
-                        $('#rotational-period-text').text('Time for one full rotation relative to the stars: ' + data.sideralRotation + ' hours');
-                    } else {
-                        $('#rotational-period-text').text('Time for one full rotation relative to the stars: ' + INFONOTFOUND)
-                    }
-                    
+                        if (data.aroundPlanet !== null){
+                            //aroundPlanet uses the id of the body the selected body orbits,
+                            //so we've gotta translate that to the English name
+                            orbitsAround = idToEngName[data.aroundPlanet.planet];
+                            $('#orbits-around-text').text('Orbits around: ' + orbitsAround);
+                        } else {
+                            orbitsAround = 'the sun'
+                            $('#orbits-around-text').text('Orbits around: ' + orbitsAround);
+                        }   
+    
+                        if (data.aphelion > 0) {
+                            $('#apoapsis-text').text('Distance from ' + orbitsAround + ' at farthest point of orbit: ' + data.aphelion + ' kilometers');
+                        } else {
+                            $('#apoapsis-text').text('Distance from ' + orbitsAround + ' at farthest point of orbit: ' + INFONOTFOUND);
+                        }
+    
+                        if (data.perihelion > 0) {
+                            $('#periapsis-text').text('Distance from ' + orbitsAround + ' at closest point of orbit: ' + data.perihelion + ' kilometers');
+                        } else {
+                            $('#periapsis-text').text('Distance from ' + orbitsAround + ' at closest point of orbit: ' + INFONOTFOUND);
+                        }
+    
+                        if (data.sideralOrbit > 0) {
+                            $('#orbital-period-text').text('Length of one full orbit around ' + orbitsAround + ': ' + data.sideralOrbit + ' days');
+                        } else {
+                            $('#orbital-period-text').text('Length of one full orbit around ' + orbitsAround + ': ' + INFONOTFOUND);
+                        }
+    
+                        if (data.sideralRotation > 0){
+                            $('#rotational-period-text').text('Time for one full rotation relative to the stars: ' + data.sideralRotation + ' hours');
+                        } else {
+                            $('#rotational-period-text').text('Time for one full rotation relative to the stars: ' + INFONOTFOUND)
+                        }
+                    }   
 
                     //Size, mass, density, and gravity section
                     if (data.equaRadius > 0) {
@@ -184,7 +208,18 @@ $(document).ready(function() {
                         $('#gravity-text').text('Surface gravity: ' + INFONOTFOUND);
                     }
 
-                    //Moons section: to do later
+                    //Moons section: only to be filled out and then rendered if body has moons
+                    if (data.moons !== null) {
+                        hasMoons = true;
+                        for (var i = 0; i < data.moons.length; i++){
+                            var newMoonEl = $('<p>');
+                            //The entries in data.moons only have their French name, so we
+                            //have to translate that to the English name
+                            newMoonEl.text(frenchToEngName[data.moons[i].moon]);
+                            newMoonEl.addClass('moon-entry');
+                            $('#moons-div').append(newMoonEl);
+                        }
+                    }
 
                     //Image: display either a photo of the body from NASA's database, or
                     //if one could not be found, a placeholder
@@ -198,6 +233,9 @@ $(document).ready(function() {
                     $('#body-name').css('display', 'block');
                     $('#search-break').css('display', 'block');
                     $('#search-content').css('display', 'block');
+                    if(hasMoons){
+                        $('.has-moons').css('display', 'block');
+                    }
 
                 } else {
                     //displaying error message in title field

@@ -498,7 +498,7 @@ $(function () {
         "S/2004 S 6",
         "S/2010 J 1",
         "S/2010 J 2",
-        "ceres",
+        "Ceres",
         "hebe",
         "lempo",
         "The Little Prince",
