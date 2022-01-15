@@ -13,6 +13,8 @@ const ONEG = 9.8;
 //to associate their French Names with their English names.
 var idToEngName = {};
 var frenchToEngName = {};
+//Finally, this one is needed for setting up certain interactable elements
+var frenchToId = {};
 
 function getIdToEngName () {
     fetch(ONECALLSOLARSYSTEM)
@@ -31,6 +33,7 @@ function getIdToEngName () {
                     idToEngName[data.bodies[i].id] = data.bodies[i].id;
                     frenchToEngName[data.bodies[i].name] = data.bodies[i].id;
                 }
+                frenchToId[data.bodies[i].name] = data.bodies[i].id;
             }
             console.log(idToEngName);
             console.log(frenchToEngName)
@@ -87,9 +90,7 @@ $(document).ready(function() {
         $('#search-content').css('display', 'none');
 
         //Removing the moons entries if there are any, then hiding the moons section
-        $.each($('.moon-entry'), function() {
-            $(this).remove();
-        });
+        $('.moon-entry').remove();
         $('.has-moons').css('display', 'none');
 
         fetch(ONECALLSOLARSYSTEM + solarBody)
@@ -120,19 +121,25 @@ $(document).ready(function() {
                     //if the body we're looking at is the sun and display a unique message accordingly
                     if (data.englishName === 'Sun'){
                         $('#orbits-around-text').text('The sun is the body around which all planets, asteroids, and comets in the solar system orbit.');
+                        $('#orbits').css('display', 'none');
                         $('#apoapsis-text').text('');
                         $('#periapsis-text').text('');
                         $('#orbital-period-text').text('');
                         $('#rotational-period-text').text('');
                     } else {
+                        $('orbits').css('display', 'block');
                         if (data.aroundPlanet !== null){
                             //aroundPlanet uses the id of the body the selected body orbits,
                             //so we've gotta translate that to the English name
                             orbitsAround = idToEngName[data.aroundPlanet.planet];
-                            $('#orbits-around-text').text('Orbits around: ' + orbitsAround);
+                            $('#orbits-around-text').text('Orbits around: ');
+                            $('#orbits').text(orbitsAround);
+                            $('#orbits').attr('data-search-term', data.aroundPlanet.planet);
                         } else {
-                            orbitsAround = 'the sun'
-                            $('#orbits-around-text').text('Orbits around: ' + orbitsAround);
+                            orbitsAround = 'the sun';
+                            $('#orbits-around-text').text('Orbits around: ');
+                            $('#orbits').text(orbitsAround);
+                            $('#orbits').attr('data-search-term', 'sun');
                         }   
     
                         if (data.aphelion > 0) {
@@ -217,6 +224,9 @@ $(document).ready(function() {
                             //have to translate that to the English name
                             newMoonEl.text(frenchToEngName[data.moons[i].moon]);
                             newMoonEl.addClass('moon-entry');
+                            newMoonEl.addClass('search-this-body');
+                            //Assigning the property that we'll use to set up links
+                            newMoonEl.attr('data-search-term', frenchToId[data.moons[i].moon]);
                             $('#moons-div').append(newMoonEl);
                         }
                     }
@@ -236,6 +246,13 @@ $(document).ready(function() {
                     if(hasMoons){
                         $('.has-moons').css('display', 'block');
                     }
+
+                    //Clicking on an element of the page with the search-this-body class calls 
+                    //solarBodySearch using that element's data-search-term attribute, which should 
+                    //contain its id
+                    $('.search-this-body').on('click', function(event){
+                        solarBodySearch($(event.target).attr('data-search-term'));
+                    });
 
                 } else {
                     //displaying error message in title field
