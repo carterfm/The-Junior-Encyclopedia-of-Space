@@ -19,7 +19,7 @@
   <script>
   //Move this to script.js later
   $( function() {
-    $( "#accordion" ).accordion();
+    $( "#accordion" ).accordion({heightStyle: "content", collapsible: true});
   });
   </script>
 </head>
@@ -90,77 +90,71 @@
 <h1 class="mgh-large has-background-info-light is-size-2 has-text-centered has-text-grey-dark apod">Astronomy Photo of the Day</h1>
 <br class="apod">
 <!-- Astronomy Photo of the Day -->
-<div class="tile is-ancestor is-10 has-background-grey-dark apod-container apod"> 
-  <div class="tile notification has-background-grey-dark">
-    <div class="tile is-parent m-6 is-7by7 mgl-medium notification has-background-grey-dark">
-      <!-- Photo -->
-      <article class="tile is-child">
-        <figure class="image">
-          <img id = "apod-img" class="is-6by6" src = "" alt = "daily photo">
-        </figure>  
-      </article>
-    </div>
-    <div class="tile is-parent is-4 mt-6 ml-5 mr-6 notification has-background-grey-dark">
-      <!-- Description -->
-      <article class="tile is-child is-right has-text-info-light">
-        <h1 id="apod-title" class="title"></h1>
-        <p id = "apod-explanation" class="content"></p>
-        <p id = "apod-copyright" class="subtitle"></p>
-      </article>
-    </div>
+<div class="columns is-flex-wrap-wrap is-four-fifths is-widescreen is-vcentered has-background-grey-dark apod-container apod"> 
+  <div class="columns is-flex-wrap-wrap is-vcentered">
+    <!-- Photo -->
+    <figure class="image column m-6 pl-6 is-7-widescreen is-8-tablet is-flex-wrap-wrap has-background-grey-dark">
+      <img id = "apod-img" class="is-centered" src = "" alt = "daily photo">
+    </figure>  
+        <!-- APOD Description -->
+    <article class="column is-3-widescreen m-6 has-text-info-light is-flex-wrap-wrap has-background-grey-dark">
+      <h1 id="apod-title" class="title has-text-info-light has-text-centered is-3"></h1>
+      <p id = "apod-explanation" class="content is-3"></p>
+      <p id = "apod-copyright" class="subtitle is-3"></p>
+    </article>
   </div>
 </div>
 
-<!-- CARTER OR ISAAC - this h1 needs to have the name of the body displayed -->
+<!-- Chosen Body -->
 <h1 class="mgh-large is-10 has-background-info-light is-size-2 has-text-centered has-text-grey-dark" id='body-name'>CHOSEN PLANET</h1>
 <br id="search-break">
-<div class="selected-body-info tile is-ancestor mx-6 px-6 has-background-grey-dark" id="search-content">
-  <div class="tile is-justify-content-space-between has-background-grey-dark mx-6">
-    <div class="tile is-parent is-4 is-justify-column-center is-flex-direction-column is-align-self-center has-background-grey-dark box">
+<div class="columns has-background-grey-dark" id="search-content">
+  <div class="columns is-flex-direction-row is-flex-wrap-wrap-reverse is-centered is-vcentered">
       <!-- Accordian of Facts -->
-      <section id="accordion" class="is-child  has-background-grey-dark has-text-centered has-text-info-light">
-          <h3>Classification and discovery</h3>
-          <div>
-            <p id="body-type-text">placeholder</p>
-            <p id="discoverer-text">placeholder</p>
-            <p id="discovery-date-text">placeholder</p>
-          </div>
-          <h3>Orbit and Rotation</h3>
-          <div>
-            <p id="orbits-around-text">placeholder</p>
-            <p class='search-this-body' id='orbits'>placeholder</p>
-            <p id="apoapsis-text">placeholder</p>
-            <p id="periapsis-text">placeholder</p>      
-            <p id="orbital-period-text">placeholder</p>
-            <p id="rotational-period-text">placeholder</p>
-          </div>
-          <h3>Size, mass, density, and gravity</h3>
-          <div>
-            <p id="equa-radius-text">placeholder</p>
-            <p id="polar-radius-text">placeholder</p>
-            <p id="mass-text">placeholder</p>
-            <p id="density-text">placeholder</p>
-            <p id="gravity-text">placeholder</p>
-          </div>
-          <!--We'll give the info panels that will only be displayed conditionally classes to mark them as such-->
-          <h3 class="has-moons">Moons</h3>
-          <div class="has-moons" id='moons-div'></div>
-        </div>  
-      </section>
+      <article id="accordion" class="column m-6 is-5-desktop is-4-tablet mgh-large">
+        <h3>Classification and discovery</h3>
+        <div>
+          <p id="body-type-text">placeholder</p>
+          <p id="discoverer-text">placeholder</p>
+          <p id="discovery-date-text">placeholder</p>
+        </div>
+        <h3>Orbit and Rotation</h3>
+        <div>
+          <p id="orbits-around-text">placeholder</p>
+          <p class='search-this-body' id='orbits'>placeholder</p>
+          <p id="apoapsis-text">placeholder</p>
+          <p id="periapsis-text">placeholder</p>      
+          <p id="orbital-period-text">placeholder</p>
+          <p id="rotational-period-text">placeholder</p>
+        </div>
+        <h3>Size, mass, density, and gravity</h3>
+        <div>
+          <p id="equa-radius-text">placeholder</p>
+          <p id="polar-radius-text">placeholder</p>
+          <p id="mass-text">placeholder</p>
+          <p id="density-text">placeholder</p>
+          <p id="gravity-text">placeholder</p>
+        </div>
+        <!--We'll give the info panels that will only be displayed conditionally classes to mark them as such-->
+        <h3 class="has-moons">Moons</h3>
+        <div class="has-moons" id='moons-div'></div> 
+      </article>
       <!-- Photo of Body -->
-      <section class="tile has-background-grey-dark">
-        <div class="tile is-parent has-background-grey-dark mt-6">
-          <!-- Photo -->
-          <article class="tile is-child is-7 mb-6">
-            <figure class="image is-8by8">
-              <img id ="body-image" class="is-align-self-right" src ="" alt = "photo of selected body">
-            </figure>  
-          </article>
-        </div> 
-      </section> 
-    </div>
-  </div>
+      <figure class="image column m-6 is-5-desktop is-6-tablet is-7-mobile mgh-large">
+        <img id ="body-image" class="" src ="" alt = "photo of selected body">
+      </figure>   
+  </div>   
 </div>  
+
+<footer class="has-background-grey-dark has-text-centered has-text-info-light">
+  <p class="is-fullheight">
+    <br>
+    <br>
+    Made by JESS
+    <br>
+    <br>
+  </p>
+</footer>
 
 </main>
 

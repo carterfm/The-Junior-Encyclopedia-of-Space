@@ -56,3 +56,11 @@ button:hover, button:active {
   display: none;
 }
 
+@media screen and (max-width: 1240px) {
+  .columns {
+    flex-direction: column;
+    align-content: center;
+  }
+}
+
+
