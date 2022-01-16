@@ -9,6 +9,10 @@
   font-family: 'PT Sans', sans-serif;
 }
 
+body {
+  background-color: var(--darkblue);
+}
+
 h1 {
   color:var(--lightblue);
   font-family: 'Righteous';
@@ -51,6 +55,4 @@ button:hover, button:active {
 #search-break {
   display: none;
 }
-
-
 
