@@ -28,9 +28,15 @@ button:active {
   background: var(--pink);
 }
 
-.hero {
-  background-color: var(--darkblue);
+.has-bg-img {
+  background-image: url('https://d2cbg94ubxgsnp.cloudfront.net/Pictures/2000xAny/7/3/4/517734_gettyimages556919061_513895.jpg');
+  background-position: center center;
+  background-size: cover;
 }
+
+/* .hero {
+  background-color: var(--darkblue);
+} */
 
 .search-this-body {
   padding: 5px;
