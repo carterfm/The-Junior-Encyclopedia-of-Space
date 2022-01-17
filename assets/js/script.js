@@ -7,11 +7,10 @@ const INFONOTFOUND = "No information was found in our database. Sorry!";
 //measured in meters per second squared; this constant will be used to convert them to Gs.
 const ONEG = 9.8;
 
-//Some information about our stellar bodies is associated with their ids (which are essentially just
-//their French names written in all lowercase), so we need an object that associates these ids with the bodies'
-//English names. Other data is assocaited with their French names, so we need another object
-//to associate their French Names with their English names.
+//Some information about our stellar bodies is only accessible under one version of their name, so we need
+//objects to handle translation for us
 var idToEngName = {};
+var engNameToId = {};
 var frenchToEngName = {};
 //Finally, this one is needed for setting up certain interactable elements
 var frenchToId = {};
@@ -24,19 +23,22 @@ function getIdToEngName () {
         .then(function (data) {
             console.log(data);
             for (var i = 0; i < data.bodies.length; i++) {
-                //For a few obscure bodies, englishName is missing from the api's data
-                //For these, we'll just use their ID
+
                 if (data.bodies[i].englishName !== '') {
                     idToEngName[data.bodies[i].id] = data.bodies[i].englishName;
+                    engNameToId[data.bodies[i].englishName] = data.bodies[i].id;
                     frenchToEngName[data.bodies[i].name] = data.bodies[i].englishName;
                 } else {
+                //For a few obscure bodies, englishName is missing from the api's data
+                //For these, we'll just use their ID
                     idToEngName[data.bodies[i].id] = data.bodies[i].id;
+                    engNameToId[data.bodies[i].id] = data.bodies[i].id;
                     frenchToEngName[data.bodies[i].name] = data.bodies[i].id;
                 }
                 frenchToId[data.bodies[i].name] = data.bodies[i].id;
             }
-            console.log(idToEngName);
-            console.log(frenchToEngName)
+            console.log(engNameToId);
+            //TODO: make note of the names at the bottom that are just using ID, and fix 'em
         })
 }
 
@@ -65,7 +67,7 @@ $(document).ready(function() {
         event.preventDefault()
         //$('.apod-container').addClass('hide');
         //$('.apod-container').css('display', 'none');
-        var solarBody = $('#planet-input').val();
+        var solarBody = engNameToId[$('#planet-input').val()];
         $('#planet-input').val('');
         solarBodySearch(solarBody);
     })
@@ -262,11 +264,6 @@ $(document).ready(function() {
             })
     }
 })
-
-
-$( function() {
-    $( "#accordion" ).accordion({heightStyle: "content", collapsible: true});
-  });
 
 getIdToEngName();
 getApod();
