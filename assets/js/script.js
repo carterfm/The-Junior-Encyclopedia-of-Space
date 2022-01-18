@@ -2,7 +2,7 @@ const REQUESTAPODURL = 'https://api.nasa.gov/planetary/apod/?api_key=mzTxnxnGx9D
 const ONECALLSOLARSYSTEM = 'https://api.le-systeme-solaire.net/rest/bodies/';
 //Message to be displayed when our dataset lacks information, which, unfortunately, is
 //a fairly frequent occurance even for some of the solar system's less obscure bodies
-const INFONOTFOUND = "No information was found in our database. Sorry!";
+const INFONOTFOUND = "No information was found in our database.";
 //By default, the surface gravity values returned by the solar system API we're using are 
 //measured in meters per second squared; this constant will be used to convert them to Gs.
 const ONEG = 9.8;
@@ -21,12 +21,13 @@ function getIdToEngName () {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
             for (var i = 0; i < data.bodies.length; i++) {
-
                 if (data.bodies[i].englishName !== '') {
                     idToEngName[data.bodies[i].id] = data.bodies[i].englishName;
                     engNameToId[data.bodies[i].englishName] = data.bodies[i].id;
+                    //adding all-lowercase versions of English names to engNameToId so users can get a proper
+                    //result if they make a correctly-spelled search with improper capitalization
+                    engNameToId[data.bodies[i].englishName.toLowerCase()] = data.bodies[i].id;
                     frenchToEngName[data.bodies[i].name] = data.bodies[i].englishName;
                 } else {
                 //For a few obscure bodies, englishName is missing from the api's data
@@ -37,7 +38,6 @@ function getIdToEngName () {
                 }
                 frenchToId[data.bodies[i].name] = data.bodies[i].id;
             }
-            console.log(engNameToId);
             //TODO: make note of the names at the bottom that are just using ID, and fix 'em
         })
 }
@@ -48,8 +48,6 @@ function getApod () {
             return response.json();
         })
         .then(function (data) {
-            /*console.log("Got Apod:")
-            console.log(data);*/
             var apodCopyRight = data.copyright;
             var apodExplanation = data.explanation;
             var apodTitle = data.title;
@@ -74,7 +72,7 @@ $(document).ready(function() {
 
     //This function handles searchin our api for 
     function solarBodySearch(solarBody) {
-        console.log("Called solarBodySearch with " + solarBody);
+        //console.log("Called solarBodySearch with " + solarBody);
         //variable to track whether the search term exists in our database or not; will be set to true if
         //the response upon calling the API is ok. Used to decide whether to display error message or
         //generate text of accordion segment
@@ -103,10 +101,14 @@ $(document).ready(function() {
                 }
             })
             .then(function (data) {
-                console.log(data);
+                //console.log(data);
                 if (bodyExists) {
                     //setting text of title field
-                    $('#body-name').text(data.englishName);
+                    if (data.englishName !== ''){
+                        $('#body-name').text(data.englishName);
+                    } else {
+                        $('#body-name').text(data.id);
+                    }
 
                     //Classification and discovery section
                     $('#body-type-text').text('Classification: ' + data.bodyType);
@@ -145,25 +147,27 @@ $(document).ready(function() {
                         }   
     
                         if (data.aphelion > 0) {
-                            $('#apoapsis-text').text('Distance from ' + orbitsAround + ' at farthest point of orbit: ' + data.aphelion + ' kilometers');
+                            //.toLocaleString('en-US') is a method that takes a number and returns a string formatted
+                            //according to the locale passed as an argument
+                            $('#apoapsis-text').text('Distance from ' + orbitsAround + ' at farthest point of orbit: ' + data.aphelion.toLocaleString('en-US') + ' kilometers');
                         } else {
                             $('#apoapsis-text').text('Distance from ' + orbitsAround + ' at farthest point of orbit: ' + INFONOTFOUND);
                         }
     
                         if (data.perihelion > 0) {
-                            $('#periapsis-text').text('Distance from ' + orbitsAround + ' at closest point of orbit: ' + data.perihelion + ' kilometers');
+                            $('#periapsis-text').text('Distance from ' + orbitsAround + ' at closest point of orbit: ' + data.perihelion.toLocaleString('en-US') + ' kilometers');
                         } else {
                             $('#periapsis-text').text('Distance from ' + orbitsAround + ' at closest point of orbit: ' + INFONOTFOUND);
                         }
     
                         if (data.sideralOrbit > 0) {
-                            $('#orbital-period-text').text('Length of one full orbit around ' + orbitsAround + ': ' + data.sideralOrbit + ' days');
+                            $('#orbital-period-text').text('Length of one full orbit around ' + orbitsAround + ': ' + data.sideralOrbit.toLocaleString('en-US') + ' days');
                         } else {
                             $('#orbital-period-text').text('Length of one full orbit around ' + orbitsAround + ': ' + INFONOTFOUND);
                         }
     
                         if (data.sideralRotation > 0){
-                            $('#rotational-period-text').text('Time for one full rotation relative to the stars: ' + data.sideralRotation + ' hours');
+                            $('#rotational-period-text').text('Time for one full rotation relative to the stars: ' + data.sideralRotation.toLocaleString('en-US') + ' hours');
                         } else {
                             $('#rotational-period-text').text('Time for one full rotation relative to the stars: ' + INFONOTFOUND)
                         }
@@ -171,19 +175,19 @@ $(document).ready(function() {
 
                     //Size, mass, density, and gravity section
                     if (data.equaRadius > 0) {
-                        $('#equa-radius-text').text('Radius at equator: ' + data.equaRadius + ' kilometers');
+                        $('#equa-radius-text').text('Radius at equator: ' + data.equaRadius.toLocaleString('en-US') + ' kilometers');
                     } else {
                         $('#equa-radius-text').text('Radius at equator: ' + INFONOTFOUND);
                     }
 
                     if (data.polarRadius > 0) {
-                        $('#polar-radius-text').text('Radius at poles: ' + data.polarRadius + ' kilometers');
+                        $('#polar-radius-text').text('Radius at poles: ' + data.polarRadius.toLocaleString('en-US') + ' kilometers');
                     } else {
                         $('#polar-radius-text').text('Radius at poles: ' + INFONOTFOUND);
                     }
 
                     if (data.meanRadius > 0) {
-                        $('#mean-radius-text').text('Average radius: ' + data.meanRadius + " kilometers");
+                        $('#mean-radius-text').text('Average radius: ' + data.meanRadius.toLocaleString('en-US') + " kilometers");
                     } else {
                         $('#mean-radius-text').text('Average radius: ' + INFONOTFOUND);
                     }
@@ -201,9 +205,11 @@ $(document).ready(function() {
                     //Similarly, the data on density this api provides are measured in grams per cubic centimeter,
                     //and we want to display them in kilograms per cubic meter, so we'll multiply the density
                     //figures the api gives us by 1000
-                    if (data.density > 0) {
+                    //Also, notably, the placeholder value for density in this api is 1, so we have to make
+                    //sure we check for that as well when deciding whether to display an error message or not
+                    if (data.density > 0 && data.density !== 1) {
                         var convertedDensity = data.density * 1000;
-                        $('#density-text').text('Density: ' + convertedDensity + ' kilograms per cubic meter')
+                        $('#density-text').text('Density: ' + convertedDensity.toLocaleString('en-US') + ' kilograms per cubic meter')
                     } else {
                         $('#density-text').text('Density: ' + INFONOTFOUND);
                     }
@@ -212,7 +218,8 @@ $(document).ready(function() {
                     //have to divide by 9.8
                     if (data.gravity > 0) {
                         var gravityGs = data.gravity/ONEG;
-                        $('#gravity-text').text('Surface gravity: ' + gravityGs + 'Gs');
+                        //rounding the surface gravity to five decimal places
+                        $('#gravity-text').text('Surface gravity: ' + gravityGs.toFixed('5') + 'Gs');
                     } else {
                         $('#gravity-text').text('Surface gravity: ' + INFONOTFOUND);
                     }
@@ -235,8 +242,11 @@ $(document).ready(function() {
 
                     //Image: display either a photo of the body from NASA's database, or
                     //if one could not be found, a placeholder
-                    if (BODIES[data.englishName] !== '') {
+                    console.log("About to generate an image");
+                    if (BODIES[data.englishName] !== '' && BODIES[data.englishName] !== undefined) {
                         $('#body-image').attr('src', BODIES[data.englishName]);
+                    } else if (BODIES[data.id] !== '' && BODIES[data.id] !== undefined) {
+                        $('#body-image').attr('src', BODIES[data.id]);
                     } else {
                         $('#body-image').attr('src', 'https://cdn.discordapp.com/attachments/929118260887171123/931643733370347530/not-found.png');
                     }
@@ -267,8 +277,4 @@ $(document).ready(function() {
 
 getIdToEngName();
 getApod();
-
-// CARTER: needs accordian function
-
-
 

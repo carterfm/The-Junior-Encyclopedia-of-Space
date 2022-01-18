@@ -39,7 +39,7 @@ const BODIES = {
   "Euporie": "",
   "Orthosie": "",
   "Sponde": "",
-  "Kale": "https://post.healthline.com/wp-content/uploads/2020/09/benefits-of-kale-1200x628-facebook-1200x628.jpg",
+  "Kale": "",
   "Pasithee": "",
   "Hegemone": "",
   "Mneme": "",
@@ -137,11 +137,11 @@ const BODIES = {
   "Cordelia": "",
   "Ophelia": "",
   "Bianca": "",
-  "Cressida": "https://d2pn8kiwq2w21t.cloudfront.net/images/imagesvoyager20160121PIA00368-16.width-1024.jpg",
+  "Cressida": "",
   "Desdemona": "",
   "Juliet": "",
-  "Portia": "https://d2pn8kiwq2w21t.cloudfront.net/images/imagesvoyager20160121PIA00368-16.width-1024.jpg",
-  "Rosalind": "https://d2pn8kiwq2w21t.cloudfront.net/images/imagesvoyager20160121PIA00368-16.width-1024.jpg",
+  "Portia": "",
+  "Rosalind": "",
   "Belinda": "",
   "Puck": "https://d2pn8kiwq2w21t.cloudfront.net/images/jpegPIA01357.width-640.jpg",
   "Caliban": "",
@@ -154,13 +154,13 @@ const BODIES = {
   "Margaret": "",
   "Ferdinand": "",
   "Perdita": "",
-  "Mab": "https://www.nasa.gov/images/content/139938main_uranus_ring.jpg",
+  "Mab": "",
   "Cupid": "",
   //neptune moons
   "Triton": "https://www.nasa.gov/sites/default/files/images/362897main_PIA01536_full.jpg",
   "Nereid": "https://solarsystem.nasa.gov/system/content_pages/main_images/1137_Nereid-browse-732X520.jpg",
   "Naiad": "https://solarsystem.nasa.gov/system/content_pages/main_images/512_Naiad-732X520.jpg",
-  "Thalassa": "https://solarsystem.nasa.gov/system/content_pages/main_images/535_Neptune_Trio732X520.jpg",
+  "Thalassa": "",
   "Despina": "https://apod.nasa.gov/apod/image/0909/neptune_despina_transit_combo_despinabrightened.jpg",
   "Galatea": "https://solarsystem.nasa.gov/system/content_pages/main_images/477_galatea_main.jpg",
   "Larissa": "https://solarsystem.nasa.gov/system/content_pages/main_images/509_Larissa_732X520.jpg",
@@ -176,69 +176,63 @@ const BODIES = {
   "Hydra": "https://www.nasa.gov/sites/default/files/thumbnails/image/nh-hydra_1_0.jpg",
   //Haumea moons
   "Namaka": "https://apod.nasa.gov/apod/image/0809/haumea_nasa.jpg",
-  "Hi'iaka": "https://apod.nasa.gov/apod/image/0809/haumea_nasa.jpg",
+  "Hiʻiaka": "https://apod.nasa.gov/apod/image/0809/haumea_nasa.jpg",
   //Eris moons
   "Dysnomia": "https://www.nasa.gov/images/content/180051main1_eris.jpg",
   //Jupiter moon
   "Dia": "https://solarsystem.nasa.gov/system/content_pages/main_images/600_scottshepp_7201.jpg",
-  //Saturn moons
-  "S/2004 S 3": "",
-  "S/2004 S 4": "",
-  "S/2004 S 6": "",
-  "S/2010 J 1": "",
-  "S/2010 J 2": "",
   //Asteroids (Come back to this)
   "1 Ceres": "https://www.nasa.gov/sites/default/files/thumbnails/image/pia21079-1041.jpg",
   "6 Hebe": "",
-  "lempo": "",
+  "47171 Lempo": "",
   "The Little Prince": "",
-  "pulcova": "",
-  "toutatis": "https://d2pn8kiwq2w21t.cloudfront.net/images/jpegPIA16599.width-1024.jpg",
-  "quaoar": "https://apod.nasa.gov/apod/image/0210/quaoar_gps.gif",
-  "steins": "",
+  "762 Pulcova": "",
+  "4179 Toutatis": "https://d2pn8kiwq2w21t.cloudfront.net/images/jpegPIA16599.width-1024.jpg",
+  "50000 Quaoar": "https://apod.nasa.gov/apod/image/0210/quaoar_gps.gif",
+  "2876 Steins": "",
   //Dwarf Planet
-  "eris": "https://apod.nasa.gov/apod/image/0609/eris_keck_big.jpg",
+  "136199 Eris": "https://apod.nasa.gov/apod/image/0609/eris_keck_big.jpg",
   //Asteroids
   "5 Astraea": "",
-  "pholus": "",
-  "castalia": "",
+  "5145 Pholus": "",
+  "4769 Castalia": "",
   //moon of sylvia
   "Remus": "https://apod.nasa.gov/apod/image/0508/sylvia_compo680.jpg",
   //Asteroids
-  "hector": "",
-  "kleopatra": "",
-  "cruithne": "",
-  "junon": "https://www.nasa.gov/images/content/387114main_juno20090916-226.jpg",
+  "624 Hektor": "",
+  "216 Kleopatra": "",
+  "3753 Cruithne": "",
+  "3 Junon": "https://www.nasa.gov/images/content/387114main_juno20090916-226.jpg",
   "10 Hygiea": "",
-  "lutetia": "",
-  "mathilde": "https://solarsystem.nasa.gov/system/content_pages/main_images/427_Mathilde1_main.jpg",
+  "21 Lutetia": "",
+  "253 Mathilde": "https://solarsystem.nasa.gov/system/content_pages/main_images/427_Mathilde1_main.jpg",
   //Planet
   "Uranus": "https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/pia18182-uranus-voyager1.png",
   //Asteroids
-  "iris": "",
-  "eros": "https://solarsystem.nasa.gov/system/content_pages/main_images/454_Eros_main.jpg",
+  "7 Iris": "",
+  "433 Eros": "https://solarsystem.nasa.gov/system/content_pages/main_images/454_Eros_main.jpg",
   "Vanth": "",
-  "sedna": "",
-  "chariklo": "https://solarsystem.nasa.gov/system/content_pages/main_images/411_10199_chariklo_main.jpg",
-  "sylvia": "https://apod.nasa.gov/apod/image/0508/sylvia_compo680.jpg",
-  "dactyl": "https://d2pn8kiwq2w21t.cloudfront.net/images/jpegPIA00297.width-768.jpg",
-  "orcus": "https://apod.nasa.gov/apod/image/0903/orcus_gemini_big.gif",
+  "90377 Sedna": "",
+  "10199 Chariklo": "https://solarsystem.nasa.gov/system/content_pages/main_images/411_10199_chariklo_main.jpg",
+  "87 Sylvia": "https://apod.nasa.gov/apod/image/0508/sylvia_compo680.jpg",
+  "(243) Ida I Dactyl": "https://d2pn8kiwq2w21t.cloudfront.net/images/jpegPIA00297.width-768.jpg",
+  "90482 Orcus": "https://apod.nasa.gov/apod/image/0903/orcus_gemini_big.gif",
   //Dwarf Planet
   "Pluto": "https://apod.nasa.gov/apod/image/1507/Pluto04_NewHorizons_960.jpg",
   //Asteroids
-  "damocles": "",
+  "5335 Damocles": "",
   //Moons
   "Romulus": "https://apod.nasa.gov/apod/image/0508/sylvia_compo680.jpg",
   "Alexhelios": "",
   "Cleoselene": "",
   //Asteroids
   "8 Flora": "",
-  "chiron": "https://upload.wikimedia.org/wikipedia/commons/9/94/2060_Chiron.jpg",
-  "eureka": "",
+  "2060 Chiron": "https://upload.wikimedia.org/wikipedia/commons/9/94/2060_Chiron.jpg",
+  "5261 Eureka": "",
   "588 Achilles": "",
   //Moon
   "Weywot": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Quaoar-weywot_hst.jpg",
-  "ixion": "https://upload.wikimedia.org/wikipedia/commons/0/08/28978-ixion_hst.jpg",
+  "28978 Ixion": "https://upload.wikimedia.org/wikipedia/commons/0/08/28978-ixion_hst.jpg",
   //Planet
   "Neptune": "https://www.nasa.gov/sites/default/files/thumbnails/image/pia01492-main.jpg",
   //Comet
@@ -246,23 +240,23 @@ const BODIES = {
   //Asteroids
   "9 Metis": "",
   //Dwarf Planet
-  "haumea": "https://apod.nasa.gov/apod/image/0809/haumea_nasa.jpg",
+  "136108 Haumea": "https://apod.nasa.gov/apod/image/0809/haumea_nasa.jpg",
   //Asteroid
-  "nessus": "",
+  "7066 Nessus": "",
   "itokawa": "https://solarsystem.nasa.gov/system/content_pages/main_images/425_itokawa_main.jpg",
-  "hylonome": "",
-  "eugenia": "https://apod.nasa.gov/apod/image/9910/moonmovie.gif",
+  "10370 Hylonome": "",
+  "45 Eugenia": "https://apod.nasa.gov/apod/image/9910/moonmovie.gif",
   "(308933) 2006 SQ372": "",
-  "pallas": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Potw1749a_Pallas_crop.png/220px-Potw1749a_Pallas_crop.png",
-  "asbolus": "",
-  "varuna": "https://upload.wikimedia.org/wikipedia/commons/9/91/20000-varuna_hst.jpg",
-  "vesta": "https://solarsystem.nasa.gov/system/content_pages/main_images/209_4_vesta_main.jpg",
-  "ida": "https://solarsystem.nasa.gov/system/content_pages/main_images/417_Ida_Dactyl_main.jpg",
+  "2 Pallas": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Potw1749a_Pallas_crop.png/220px-Potw1749a_Pallas_crop.png",
+  "8405 Asbolus": "",
+  "20000 Varuna": "https://upload.wikimedia.org/wikipedia/commons/9/91/20000-varuna_hst.jpg",
+  "4 Vesta": "https://solarsystem.nasa.gov/system/content_pages/main_images/209_4_vesta_main.jpg",
+  "243 Ida": "https://solarsystem.nasa.gov/system/content_pages/main_images/417_Ida_Dactyl_main.jpg",
   //Comet
-  "hyakutake": "https://apod.nasa.gov/apod/image/0912/hyakutake_zubenel_big.jpg",
-  "gaspra": "https://d2pn8kiwq2w21t.cloudfront.net/images/jpegPIA00119.width-1440.jpg",
-  "albion": "https://upload.wikimedia.org/wikipedia/commons/c/cf/1992_QB1_crop.jpg",
-  "makemake": "https://apod.nasa.gov/apod/image/0807/makemake_nasa.jpg",
+  "Comet Hyakutake": "https://apod.nasa.gov/apod/image/0912/hyakutake_zubenel_big.jpg",
+  "951 Gaspra": "https://d2pn8kiwq2w21t.cloudfront.net/images/jpegPIA00119.width-1440.jpg",
+  "15760 Albion": "https://upload.wikimedia.org/wikipedia/commons/c/cf/1992_QB1_crop.jpg",
+  "136472 Makemake": "https://apod.nasa.gov/apod/image/0807/makemake_nasa.jpg",
   "Halley's Comet": "https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/1986_halley_comet.jpg",
   //Planets and the sun
   "Jupiter": "https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/stsci-h-p1936a-m-1999x2000.png",
@@ -291,30 +285,30 @@ const BODIES = {
   "S/2017 J 8": "",
   "S/2017 J 9": "",
   "Ersa": "",
-  "Arrkoth": "https://apod.nasa.gov/apod/image/1901/UltimaThule_NewHorizonsAppere_1000.jpg",
+  "Arrokoth": "https://apod.nasa.gov/apod/image/1901/UltimaThule_NewHorizonsAppere_1000.jpg",
   "101955 Bennu": "https://solarsystem.nasa.gov/system/feature_items/images/603_bennu-mosaic.jpg",
-  "S/2004 S 22": "",
-  "S/2004 S 21": "",
-  "S/2004 S 20": "",
-  "S/2004 S 23": "",
-  "S/2004 S 24": "",
-  "S/2004 S 25": "",
-  "S/2004 S 26": "",
-  "S/2004 S 27": "",
-  "S/2004 S 28": "",
-  "S/2004 S 29": "",
-  "S/2004 S 30": "",
-  "S/2004 S 31": "",
-  "S/2004 S 32": "",
-  "S/2004 S 33": "",
-  "S/2004 S 34": "",
-  "S/2004 S 35": "",
-  "S/2004 S 36": "",
-  "S/2004 S 37": "",
-  "S/2004 S 38": "",
-  "S/2004 S 39": "",
-  "C/2020 F3 (NEOWISE)": "https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/50103972537_82d097c23d_o.jpg",
-  "S/2003 J 24": ""
+  "s2004s22": "",
+  "s2004s21": "",
+  "s2004s20": "",
+  "s2004s23": "",
+  "s2004s24": "",
+  "s2004s25": "",
+  "s2004s26": "",
+  "s2004s27": "",
+  "s2004s28": "",
+  "s2004s29": "",
+  "s2004s30": "",
+  "s2004s31": "",
+  "s2004s32": "",
+  "s2004s33": "",
+  "s2004s34": "",
+  "s2004s35": "",
+  "s2004s36": "",
+  "s2004s37": "",
+  "s2004s38": "",
+  "s2004s39": "",
+  "c2020f3-neowise": "https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/50103972537_82d097c23d_o.jpg",
+  "s2003j24": ""
 }
 
 $(function () {
@@ -737,7 +731,7 @@ $(function () {
       category: "Saturn's Moons"
     },
     {
-      label: "Pheobe",
+      label: "Phoebe",
       category: "Saturn's Moons"
     },
     {
@@ -1221,7 +1215,7 @@ $(function () {
       category: "Pluto's Moons"
     },
     {
-      label: "Kerboeros",
+      label: "136472 Makemake",
       category: "Pluto's Moons"
     },
     {
@@ -1233,7 +1227,7 @@ $(function () {
       category: "Haumea's Moons"
     },
     {
-      label: "Hi'Iaka",
+      label: "Hiʻiaka",
       category: "Haumea's Moons"
     },
     {
@@ -1265,7 +1259,7 @@ $(function () {
       category: "Asteroids"
     },
     {
-      label: "50000 Quoar",
+      label: "50000 Quaoar",
       category: "Asteroids"
     },
     {
@@ -1441,7 +1435,7 @@ $(function () {
       category: "Kleopatra's Moons"
     },
     {
-      label: "Cleoselne",
+      label: "Cleoselene",
       category: "Kleopatra's Moons"
     },
     {
@@ -1477,8 +1471,12 @@ $(function () {
       category: "Comets"
     },
     {
-      label: "c2020fs-neowise",
+      label: "c2020f3-neowise",
       category: "Comets"
+    },
+    {
+      label: "s2003j24",
+      category: "Jupiter's Moons"
     },
     {
       label: "S/2015 (136472) 1",

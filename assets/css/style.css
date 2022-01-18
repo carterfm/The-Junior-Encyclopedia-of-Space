@@ -41,6 +41,7 @@ button:active {
 .search-this-body {
   padding: 5px;
   margin: 5px;
+  text-align: center;
 
   background-color: grey;
   color: white;
@@ -72,6 +73,10 @@ button:active {
 
 #search-content {
   display: none;
+}
+
+#search-content-holder {
+  align-items: flex-end;
 }
 
 #search-break {
