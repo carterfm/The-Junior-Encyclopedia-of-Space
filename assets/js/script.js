@@ -61,16 +61,8 @@ function getApod () {
 
 //Holding off and only implementing the interactive elements until the page load is complete
 $(document).ready(function() {
-    $('form').on('submit', function (event) {
-        event.preventDefault()
-        //$('.apod-container').addClass('hide');
-        //$('.apod-container').css('display', 'none');
-        var solarBody = engNameToId[$('#planet-input').val()];
-        $('#planet-input').val('');
-        solarBodySearch(solarBody);
-    })
-
-    //This function handles searchin our api for 
+    //This function handles searchin our api for information about solar bodies and then generating
+    //page content
     function solarBodySearch(solarBody) {
         //console.log("Called solarBodySearch with " + solarBody);
         //variable to track whether the search term exists in our database or not; will be set to true if
@@ -88,9 +80,8 @@ $(document).ready(function() {
         $('#body-name').css('display', 'none');
         $('#search-break').css('display', 'none');
         $('#search-content').css('display', 'none');
-
-        //Removing the moons entries if there are any, then hiding the moons section
-        $('.moon-entry').remove();
+        //Hiding the moons section--this isn't redundant, since we don't want this showing
+        //up for bodies that don't have moons
         $('.has-moons').css('display', 'none');
 
         fetch(ONECALLSOLARSYSTEM + solarBody)
@@ -101,7 +92,11 @@ $(document).ready(function() {
                 }
             })
             .then(function (data) {
-                //console.log(data);
+                //Removing the moons entries if there are any--doing this here rather than
+                //above to avoid a duplication glitch caused by the event listeners we add
+                //below
+                $('.moon-entry').remove();
+
                 if (bodyExists) {
                     //setting text of title field
                     if (data.englishName !== ''){
@@ -262,7 +257,8 @@ $(document).ready(function() {
                     //Clicking on an element of the page with the search-this-body class calls 
                     //solarBodySearch using that element's data-search-term attribute, which should 
                     //contain its id
-                    $('.search-this-body').on('click', function(event){
+                    $('.moon-entry').on('click', function(event){
+                        console.log("Clicked on .moon-entry")
                         solarBodySearch($(event.target).attr('data-search-term'));
                     });
 
@@ -273,6 +269,21 @@ $(document).ready(function() {
                 }
             })
     }
+
+    //Event listeners
+    $('#orbits').on('click', function(event){
+        console.log("Cliked on #orbits");
+        solarBodySearch($(event.target).attr('data-search-term'));
+    });
+
+    $('form').on('submit', function (event) {
+        event.preventDefault()
+        //$('.apod-container').addClass('hide');
+        //$('.apod-container').css('display', 'none');
+        var solarBody = engNameToId[$('#planet-input').val()];
+        $('#planet-input').val('');
+        solarBodySearch(solarBody);
+    })
 })
 
 getIdToEngName();
