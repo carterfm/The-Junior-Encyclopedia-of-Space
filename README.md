@@ -25,9 +25,15 @@ A JavaScript and Framework based astromonical encyclopedia of bodies in our sola
 - [Nasa's Apod](https://api.nasa.gov/)
 - [The Solar System OpenData](https://api.le-systeme-solaire.net/en/)
 
-## Demo:
+## Screenshots:
 
-![Going through the website and showing functionality](./assets/images/JESS.gif)
+- ![1](https://i.imgur.com/0hPE9y8.png)
+
+- ![2](https://i.imgur.com/0hPE9y8.png)
+
+- ![3](https://i.imgur.com/Qbtf43l.png)
+
+- ![4](https://i.imgur.com/EVM41zk.png)
 
 ## License:
 
