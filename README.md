@@ -27,7 +27,7 @@ A JavaScript and Framework based astromonical encyclopedia of bodies in our sola
 
 ## Demo:
 
-![Going through the website and showing functionality](./assets/images/JESS.gif)
+![Going through the website and showing functionality](./assets/Images/JESS.gif)
 
 ## License:
 
